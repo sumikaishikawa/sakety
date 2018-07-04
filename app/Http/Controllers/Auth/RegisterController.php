@@ -23,11 +23,11 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     // add
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest')->except('logout');
     }
 
     protected function validator(array $data)
