@@ -18,6 +18,8 @@
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
                     {!! Form::close() !!}
                 @endif
+                @include('user_favorite.favorite_button', ['user' => $user])
+                <a href="{{ route('microposts.edit', ['id' => $micropost->id]) }}">coworkers</a>
             </div>
         </div>
     </li>
