@@ -12,14 +12,14 @@
             <div>
                 <p>{!! nl2br(e($micropost->content)) !!}</p>
             </div>
-            <div>
+            <div class="button-inline button-group">
                 @if (Auth::id() == $micropost->user_id)
                     {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
                     {!! Form::close() !!}
-                @endif
+                @endif 
                 @include('user_favorite.favorite_button', ['user' => $user])
-                <a href="{{ route('microposts.edit', ['id' => $micropost->id]) }}">coworkers</a>
+                <a href="{{ route('microposts.edit', ['id' => $micropost->id]) }}" class="btn btn-default btn-xs btn-inline" role="button" >Cowokers</a>
             </div>
         </div>
     </li>
