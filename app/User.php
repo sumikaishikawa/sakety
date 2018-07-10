@@ -27,6 +27,11 @@ class User extends Authenticatable
         return $this->hasMany(Micropost::class);
     }
     
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+    
     public function followings()
     {
         return $this->belongsToMany(User::class, 'user_follow', 'user_id', 'follow_id')->withTimestamps();
@@ -82,6 +87,13 @@ class User extends Authenticatable
         $follow_user_ids = $this-> pluck('users.id')->toArray();
         $follow_user_ids[] = $this->id;
         return Micropost::whereIn('user_id', $follow_user_ids);
+    }
+    
+    public function feed_comments()
+    {
+        $follow_user_ids = $this-> pluck('users.id')->toArray();
+        $follow_user_ids[] = $this->id;
+        return Comment::whereIn('user_id', $follow_user_ids);
     }
     
     

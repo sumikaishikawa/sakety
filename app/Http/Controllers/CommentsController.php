@@ -4,29 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Micropost;
+use App\User; 
+
+use App\Micropost;// add
 
 use App\Comment;
 
-
-
-class MicropostsController extends Controller
+class CommentsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $data = [];
         if (\Auth::check()) {
             $user = \Auth::user();
-            $microposts = $user->feed_microposts()->orderBy('created_at', 'desc')->paginate(10);
+            $comments = $user->feed_comments()->orderBy('created_at', 'desc')->paginate(10);
 
             $data = [
                 'user' => $user,
-                'microposts' => $microposts,
+                'comments' => $comments,
             ];
         }
         return view('welcome', $data);
@@ -37,9 +32,11 @@ class MicropostsController extends Controller
         $this->validate($request, [
             'content' => 'required|max:191',
         ]);
+       // var_dump($request->microposts_id);return;
 
-        $request->user()->microposts()->create([
+        $request->user()->comments()->create([
             'content' => $request->content,
+            'microposts_id' => $request->microposts_id
         ]);
 
         return redirect()->back();
@@ -51,7 +48,7 @@ class MicropostsController extends Controller
             'content' => 'required|max:191',
         ]);
 
-        $request->user()->microposts()->create([
+        $request->user()->comments()->create([
             'content' => $request->content,
         ]);
 
@@ -60,24 +57,21 @@ class MicropostsController extends Controller
     
     public function edit($id)
     {
-        $micropost = Micropost::find($id);
-        $users = $micropost->favoriters()->paginate(10);
-        $comment = Comment::where('microposts_id', $id)->get();
-        // $comment = Comment::get();
+        $comment = Comment::find($id);
+        $users = $comment->favoriters()->paginate(10);
 
         return view('microposts.edit', [
-            'microposts' => $micropost,
-            'users' => $users,
             'comments' => $comment,
+            'users' => $users,
         ]);
     }
     
     public function destroy($id)
     {
-        $micropost = \App\Micropost::find($id);
+        $comment = \App\Comment::find($id);
 
-        if (\Auth::id() === $micropost->user_id) {
-            $micropost->delete();
+        if (\Auth::id() === $comment->user_id) {
+            $comment->delete();
         }
 
         return redirect()->back();
