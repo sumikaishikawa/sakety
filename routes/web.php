@@ -35,4 +35,5 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::resource('microposts', 'MicropostsController', ['only' => ['store', 'update', 'destroy', 'edit']]);
+    Route::resource('comments', 'CommentsController', ['only' => ['store', 'update', 'destroy', 'edit']]);
 });
