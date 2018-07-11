@@ -1,4 +1,6 @@
-<ul class="media-list">
+<link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+
+<ul class="comment">
 @foreach ($comments as $comment)
     <?php $user = $comment->user; ?>
     <li class="media">

@@ -1,13 +1,83 @@
 @charset "utf-8";
 
+/*background-image*/
+/*html{*/
+/*    background: url('public/images/BG.jpg');*/
+/*}*/
+
+body {
+    /*background: #f2f2f2;*/
+    background-image: url("/images/BG.jpg");
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+   
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+   
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    background-attachment: fixed;
+   
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+   
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    background-color: #464646;
+    
+}
+
+
+
+
 /*microposts*/
 
-.media{
+.micropost{
+    /*padding: 0.5em 1em;*/
+    /*margin: 2em 0;*/
+    /*font-weight: bold;*/
+    /*color: #6091d3;*/
+    /*background: #FFF;*/
+    /*border: solid 3px #6091d3;*/
+    /*border-radius: 10px;*/
+    
     padding: 0.5em 1em;
     margin: 2em 0;
-    font-weight: bold;
-    color: #6091d3;/*文字色*/
-    background: #FFF;
-    border: solid 3px #6091d3;/*線*/
-    border-radius: 10px;/*角の丸み*/
+    color: #5d627b;
+    background: #EEEEEE;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    
+    /*margin:2em 0;*/
+    /*position: relative;*/
+    /*padding: 0.5em 1.5em;*/
+    /*border-top: solid 2px black;*/
+    /*border-bottom: solid 2px black;*/
+}
+
+/*.media:before, .media:after{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: -10px;*/
+/*    width: 2px;*/
+/*    height: -webkit-calc(100% + 20px);*/
+/*    height: calc(100% + 20px);*/
+/*    background-color: black;*/
+/*}*/
+
+/*.media:before{*/
+/*    left: 10px;*/
+/*}*/
+
+/*.media:after{*/
+/*    right: 10px;*/
+/*}*/
+
+/*comment*/
+
+.comment{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #5d627b;
+    background: #EEEEEE;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }

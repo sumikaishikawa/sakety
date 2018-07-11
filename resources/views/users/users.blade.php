@@ -1,5 +1,6 @@
 @if (count($users) > 0)
 <ul class="media-list">
+    <?php $i=0; ?>
 @foreach ($users as $user)
     <li class="media">
     <aside class="col-xs-4">
@@ -13,12 +14,14 @@
                             {{ $user->name }}
                         </div>
                     <div>
-                    <p>{!! link_to_route('users.show', 'View profile', ['id' => $user->id]) !!}</p>
+                        <p>{!! link_to_route('users.show', 'View profile', ['id' => $user->id]) !!}</p>
                 </div>
             </div>
         </div>
     </li>
+    <?php $i++; ?>
 @endforeach
+<h3>現在の参加者は{{ $i }}人です。<h3>
 </ul>
 {!! $users->render() !!}
 @endif
