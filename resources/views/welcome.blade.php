@@ -3,7 +3,7 @@
 @section('content')
     @if (Auth::check())
         <div class="row">
-            <aside class="col-xs-4">
+            <aside class="col-xs-2">
             </aside>
             <div class="col-xs-8">
                 @if (count($microposts) > 0)

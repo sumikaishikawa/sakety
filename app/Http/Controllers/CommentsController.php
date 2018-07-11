@@ -73,7 +73,6 @@ class CommentsController extends Controller
         if (\Auth::id() === $comment->user_id) {
             $comment->delete();
         }
-
         return redirect()->back();
     }
 }

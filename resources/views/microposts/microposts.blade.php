@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+
 <ul class="media-list">
 @foreach ($microposts as $micropost)
     <?php $user = $micropost->user; ?>
@@ -13,13 +15,13 @@
                 <p>{!! nl2br(e($micropost->content)) !!}</p>
             </div>
             <div class="button-inline button-group">
+                @include('user_favorite.favorite_button', ['user' => $user])
+                <a href="{{ route('microposts.edit', ['id' => $micropost->id]) }}" class="btn btn-default btn-xs btn-inline" role="button" >Cowokers</a>
                 @if (Auth::id() == $micropost->user_id)
                     {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
                     {!! Form::close() !!}
-                @endif 
-                @include('user_favorite.favorite_button', ['user' => $user])
-                <a href="{{ route('microposts.edit', ['id' => $micropost->id]) }}" class="btn btn-default btn-xs btn-inline" role="button" >Cowokers</a>
+                @endif
             </div>
         </div>
     </li>
