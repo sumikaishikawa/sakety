@@ -37,10 +37,17 @@ class MicropostsController extends Controller
     {
         $this->validate($request, [
             'content' => 'required|max:191',
+            // add
+            'dateto_id' => 'required',
+            'datefrom_id' => 'required',
+            
         ]);
 
         $request->user()->microposts()->create([
             'content' => $request->content,
+            // add
+            'dateto_id' => $request->dateto_id,
+            'datefrom_id' => $request->datefrom_id,
         ]);
 
         return redirect()->back();

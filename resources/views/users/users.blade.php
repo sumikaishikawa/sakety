@@ -15,6 +15,21 @@
                         </div>
                     <div>
                         <p>{!! link_to_route('users.show', 'View profile', ['id' => $user->id]) !!}</p>
+
+                @include('user_done.done_button', ['user' => $user])
+
+                       
+                    <!--    @if (Auth::id() == $user->id)-->
+        
+                    <!--     {!! Form::open(['route' => ['users.undone', $user->id], ]) !!}-->
+                    <!--         {!! Form::submit('NotDone', ['class' => "btn btn-success btn-xs"]) !!}-->
+                    <!--       {!! Form::close() !!}-->
+                    <!--                    @else-->
+                    <!--    {!! Form::open(['route' => ['users.done', $user->id]]) !!}-->
+                    <!--    {!! Form::submit('Done', ['class' => "btn btn-default btn-xs"]) !!}-->
+                    <!--        {!! Form::close() !!}-->
+                    <!--@endif-->
+                      
                 </div>
             </div>
         </div>

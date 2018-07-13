@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Micropost extends Model
 {
-    protected $fillable = ['content', 'user_id'];
+    protected $fillable = ['content', 'user_id', 'dateto_id', 'datefrom_id'];
 
     public function user()
     {
