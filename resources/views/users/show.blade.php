@@ -24,7 +24,15 @@
             @if (Auth::user()->id == $user->id)
                   {!! Form::open(['route' => 'microposts.store']) !!}
                       <div class="form-group">
+                          <p>Target</p>
                           {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
+                          <form>
+                            <p>Deadline</p>
+                            <label >From:</label>
+                            <input type="text" id="datepickerFrom" name="dateto_id" placeholder="開始日を選んでください" >
+                            <label >To:</label>
+                            <input type="text" id="datepickerTo" name="datefrom_id" placeholder="終了日を選んでください">
+                          </form>
                           {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
                       </div>
                   {!! Form::close() !!}

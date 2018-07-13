@@ -13,6 +13,7 @@
             </div>
             <div>
                 <p>{!! nl2br(e($micropost->content)) !!}</p>
+                <p>start:{!! nl2br(e($micropost->dateto_id)) !!} end:{!! nl2br(e($micropost->datefrom_id)) !!}</p>
             </div>
             <div class="button-inline button-group">
                 @include('user_favorite.favorite_button', ['user' => $user])

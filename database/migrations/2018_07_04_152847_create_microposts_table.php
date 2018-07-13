@@ -11,12 +11,14 @@ class CreateMicropostsTable extends Migration
      *
      * @return void
      */
-     public function up()
+public function up()
     {
         Schema::create('microposts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->string('content');
+            $table->string('dateto_id')->nullable();
+            $table->string('datefrom_id')->nullable();
             $table->timestamps();
 
             // Foreign key constraint

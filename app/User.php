@@ -150,4 +150,55 @@ class User extends Authenticatable
           return $this->favoritings()->where('favorite_id', $micropostId)->exists();
 }
 
+    public function is_doneings($micropostId) {
+          return $this->doneings()->where('done_id', $micropostId)->exists();
+}
+
+    static function select($userId) {
+        $user = User::find($userId);
+        return $user->doneings()->exists();
+    }
+
+    public function done($micropostId)
+     {
+         // confirm if already following
+         $exist = $this->is_doneings($micropostId);
+         // confirming that it is not you
+        //  $its_me = $this->id == $micropostId;
+
+         if ($exist) {
+          // do nothing if already following
+         return false;
+         } else {
+         // follow if not following
+         //$thisはインスタンス自身を指す特別な関数（例：$a->favorites($micropostId=1) = $this）
+         //以下のコードの意味
+         //未ファボのmicropostをファボしたとき、favoritings()に$micropostId=1を追加する
+         $this->doneings()->attach($micropostId);
+         return true;
+        }
+    }
+
+    public function undone($micropostId)
+     {
+         // confirming if already following
+         $exist = $this->is_doneings($micropostId);
+         // confirming that it is not you
+        //  $its_me = $this->id == $micropostId;
+
+         if ($exist) {
+         // stop following if following
+         $this->doneings()->detach($micropostId);
+         return true;
+         } else {
+        // do nothing if not following
+        return false;
+    }
+}
+
+    public function doneings()
+    {
+        return $this->belongsToMany(User::class, 'user_done', 'user_id', 'done_id')->withTimestamps();
+    }
+
 }
