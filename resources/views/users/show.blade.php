@@ -34,4 +34,11 @@
             @endif
         </div>
     </div>
+    @if (Auth::user()->id == $user->id)
+    <?php 
+    $regpoint = 500;
+    $point = $regpoint - 50 * $count_favoritings;
+    print("あなたの所持ポイントは"); echo ($point); print("ptです")
+    ?>
+    @endif
 @endsection

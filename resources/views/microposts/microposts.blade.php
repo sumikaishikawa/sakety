@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+<script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script> 
 
 <ul class="media-list">
 @foreach ($microposts as $micropost)
@@ -14,14 +15,24 @@
             <div>
                 <p>{!! nl2br(e($micropost->content)) !!}</p>
             </div>
-            <div class="button-inline button-group">
-                @include('user_favorite.favorite_button', ['user' => $user])
-                <a href="{{ route('microposts.edit', ['id' => $micropost->id]) }}" class="btn btn-default btn-xs btn-inline" role="button" >Cowokers</a>
-                @if (Auth::id() == $micropost->user_id)
-                    {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
-                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
-                    {!! Form::close() !!}
-                @endif
+            
+            <div class="row">
+                <div class="col-xs-3">
+                    @include('user_favorite.favorite_button', ['user' => $user])
+                </div>
+                <div class="col-xs-3">
+                    <i class="fas fa-users"></i>
+                    <a href="{{ route('microposts.edit', ['id' => $micropost->id]) }}" class="btn btn-default btn-xs btn-inline" role="button" >Cowokers</a>
+                  
+                </div>
+                <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                </div>
+                
+                
+                
+                
             </div>
         </div>
     </li>
