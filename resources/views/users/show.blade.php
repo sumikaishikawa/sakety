@@ -29,9 +29,9 @@
                           <form>
                             <p>Deadline</p>
                             <label >From:</label>
-                            <input type="text" id="datepickerFrom" name="dateto_id" placeholder="開始日を選んでください" >
+                            <input type="text" id="datepickerFrom" name="dateto_id" placeholder="開始日を選んでください" autocomplete="off">
                             <label >To:</label>
-                            <input type="text" id="datepickerTo" name="datefrom_id" placeholder="終了日を選んでください">
+                            <input type="text" id="datepickerTo" name="datefrom_id" placeholder="終了日を選んでください" autocomplete="off">
                           </form>
                           {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
                       </div>
