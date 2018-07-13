@@ -106,7 +106,7 @@ html {
 
 label {
     display: inline-block; 
-    color: #fff;
+    color: black;
     cursor: pointer;
     position: relative; 
 }

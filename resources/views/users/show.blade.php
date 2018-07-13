@@ -28,7 +28,7 @@
                           {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
                           <form>
                             <p>Deadline</p>
-                            <label >From:</label>
+                            <label>From:</lable>
                             <input type="text" id="datepickerFrom" name="dateto_id" placeholder="開始日を選んでください" autocomplete="off">
                             <label >To:</label>
                             <input type="text" id="datepickerTo" name="datefrom_id" placeholder="終了日を選んでください" autocomplete="off">
