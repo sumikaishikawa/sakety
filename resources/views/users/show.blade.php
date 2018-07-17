@@ -11,13 +11,20 @@
                     <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->email, 500) }}" alt="">
                 </div>
             </div>
-            　 @include('user_follow.follow_button', ['user' => $user])
+            　 <!--@include('user_follow.follow_button', ['user' => $user])-->
+            　 @if (Auth::user()->id == $user->id)
+                <?php 
+                $regpoint = 500;
+                $point = $regpoint - 50 * $count_favoritings;
+                print("あなたの所持ポイントは"); echo ($point); print("ptです")
+                ?>
+                @endif
         </aside>
         <div class="col-xs-8">
             <ul class="nav nav-tabs nav-justified">
                 <li role="presentation" class="{{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show', ['id' => $user->id]) }}">TimeLine <span class="badge">{{ $count_microposts }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">Followings <span class="badge">{{ $count_followings }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">Followers <span class="badge">{{ $count_followers }}</span></a></li>
+                <!--<li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">Followings <span class="badge">{{ $count_followings }}</span></a></li>-->
+                <!--<li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">Followers <span class="badge">{{ $count_followers }}</span></a></li>-->
                 <li role="presentation" class="{{ Request::is('users/*/favoritings') ? 'active' : '' }}"><a href="{{ route('users.favoritings', ['id' => $user->id]) }}">Joined events <span class="badge">{{ $count_favoritings }}</span></a></li>
                 <!--<li role="presentation" class="{{ Request::is('users/*/favoriters') ? 'active' : '' }}"><a href="{{ route('users.favoriters', ['id' => $user->id]) }}">参加者<span class="badge">{{ $count_favoriters }}</span></a></li>-->
             </ul>
@@ -26,13 +33,12 @@
                       <div class="form-group">
                           <p>Target</p>
                           {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
-                          <form>
-                            <p>Deadline</p>
-                            <label>From:</lable>
-                            <input type="text" id="datepickerFrom" name="dateto_id" placeholder="開始日を選んでください" autocomplete="off">
-                            <label >To:</label>
-                            <input type="text" id="datepickerTo" name="datefrom_id" placeholder="終了日を選んでください" autocomplete="off">
-                          </form>
+                          <p>Deadline</p>
+                          <div class="input-group input-daterange">
+                            <input type="text" id="datepickerFrom" class="form-control" name="dateto_id" placeholder="開始日を選んでください" autocomplete="off">
+                            <div class="input-group-addon">to</div>
+                            <input type="text" id="datepickerTo" class="form-control" name="datefrom_id" placeholder="終了日を選んでください" autocomplete="off">
+                          </div>
                           {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
                       </div>
                   {!! Form::close() !!}
@@ -42,4 +48,5 @@
             @endif
         </div>
     </div>
+    
 @endsection
