@@ -24,9 +24,10 @@ class CommentsController extends Controller
                 'comments' => $comments,
             ];
         }
+        
         return view('welcome', $data);
     }
-    
+   
      public function store(Request $request)
     {
         $this->validate($request, [

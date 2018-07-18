@@ -14,11 +14,5 @@
             <script defer src="https://use.fontawesome.com/releases/v5.0.11/js/all.js"></script>
             <i class="fas fa-user-plus"></i>
             {!! Form::submit('JOIN', ['class' => "btn btn-default btn-xs"]) !!}
-                
         {!! Form::close() !!}
-        
-        
-        
-
-    
 @endif

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserDoneTable extends Migration
+class CreatePointsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateUserDoneTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_done', function (Blueprint $table) {
+        Schema::create('points', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->integer('done_id')->unsigned()->index();
+            $table->integer('point_id')->unsigned()->index();
+            $table->tinyinteger('point');
             $table->timestamps();
             
-             // Foreign key setting
+            // Foreign key setting
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('done_id')->references('id')->on('microposts')->onDelete('cascade');
+            $table->foreign('point_id')->references('id')->on('microposts')->onDelete('cascade');
 
             // Do not allow duplication of combination of user_id and follow_id
             $table->unique(['id']);
@@ -35,6 +36,6 @@ class CreateUserDoneTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_done');
+        Schema::dropIfExists('points');
     }
 }

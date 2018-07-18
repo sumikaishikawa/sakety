@@ -42,6 +42,24 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'user_follow', 'follow_id', 'user_id')->withTimestamps();
     }
     
+    
+    public function joined_microposts()
+    {
+        return $this->belongsToMany(Micropost::class, 'user_favorite',  'user_id', 'favorite_id')->withTimestamps();
+    }
+    
+    public function done_microposts()
+    {
+        return $this->belongsToMany(Micropost::class, 'user_done',  'user_id', 'done_id')->withTimestamps();
+    }
+    
+    public function point()
+    {
+        return $this->hasMany(Point::class);
+    }
+    
+    
+    
     public function follow($userId)
 {
     // confirm if already following
@@ -96,6 +114,12 @@ class User extends Authenticatable
         return Comment::whereIn('user_id', $follow_user_ids);
     }
     
+    public function feed_point()
+    {
+        $follow_user_ids = $this-> pluck('users.id')->toArray();
+        $follow_user_ids[] = $this->id;
+        return Comment::whereIn('user_id', $follow_user_ids);
+    }
     
     public function favoritings()
     {
@@ -198,7 +222,7 @@ class User extends Authenticatable
 
     public function doneings()
     {
-        return $this->belongsToMany(User::class, 'user_done', 'user_id', 'done_id')->withTimestamps();
+        return $this->belongsToMany(Micropost::class, 'user_done', 'user_id', 'done_id')->withTimestamps();
     }
 
 }
