@@ -37,6 +37,7 @@
     <?php $i++; ?>
 @endforeach
 <h3>現在の参加者は{{ $i }}人です。<h3>
+<h3>現在のDONE人数は{{ $i }}人です。</h3>
 </ul>
 {!! $users->render() !!}
 @endif
