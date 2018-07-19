@@ -50,9 +50,9 @@ class UsersController extends Controller
             $count_doneings = DB::table('user_done')
                             ->where('done_id',  $joined_micropost->id)
                             ->count();
-                var_dump($count_doneings);//1ポストにdoneした人数
+                // var_dump($count_doneings);//1ポストにdoneした人数
             $i = count($us); //参加者数
-                var_dump($i);
+                // var_dump($i);
             if($count_doneings  > 0) {
                     
                 $point += $i * 100 / $count_doneings;
@@ -61,7 +61,7 @@ class UsersController extends Controller
                 $point += 0;
             }
             }
-            var_dump($point);
+            // var_dump($point);
         }
         // exit;
     //   return;

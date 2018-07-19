@@ -1,15 +1,17 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+
 @section('content')
-    <div class="text-center">
+    <div class="signup">
         <h1>Sign up</h1>
     </div>
 
-    <div class="row">
+    <div class="row1">
         <div class="col-md-6 col-md-offset-3">
 
             {!! Form::open(['route' => 'signup.post']) !!}
-                <div class="form-group">
+                <div class="form-group"><br>
                     {!! Form::label('name', 'Name') !!}
                     {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
                 </div>
@@ -29,7 +31,7 @@
                     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
 
-                {!! Form::submit('Sign up', ['class' => 'btn btn-primary btn-block']) !!}
+                <button class=yumabtn type="submit">Sign Up</button>
             {!! Form::close() !!}
         </div>
     </div>
