@@ -31,7 +31,7 @@ class Micropost extends Model
     
     public function doneings()
     {
-        return $this->belongsToMany(Micropost::class, 'user_done', 'id', 'done_id')->withTimestamps();
+        return $this->belongsToMany(User::class, 'user_done', 'user_id', 'done_id')->withTimestamps();
     }
     
 }

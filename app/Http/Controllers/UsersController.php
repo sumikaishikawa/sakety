@@ -126,8 +126,8 @@ class UsersController extends Controller
         $user = User::find($id);
         $doneings = $user->doneings()->paginate(10);
         $microposts = request::input('invisible');
-        var_dump($microposts);
-        exit;
+        // var_dump($microposts);
+        // exit;
         
 
         $data = [
