@@ -14,14 +14,7 @@
                           <input type='hidden' name='microposts_id' value={{ $microposts->id }}>
                       </div>
                   {!! Form::close() !!}
-                  {!! Form::open(['route' => 'point.store']) !!}
-                      <div class="form-group">
-                          {!! Form::selectRange('point', '50', '50', old('point'), ['class' => 'form-control', 'row'=>'2']) !!}
-                          <!--{!! Form::textarea('point', old('point'), ['class' => 'form-control', 'rows' => '2']) !!}-->
-                          {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
-                          <input type='hidden' name='point_id' value={{ $microposts->id }}>
-                      </div>
-                  {!! Form::close() !!}
+                  
     </div>
     <div class="col-md-6">             
         <ul class="media-list">
