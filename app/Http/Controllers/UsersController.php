@@ -40,13 +40,13 @@ class UsersController extends Controller
 
             $user_done = DB::table('user_done')
                         ->where([['done_id',  $joined_micropost->id],['user_id', $user->id]])
-                        ->first();
+                        ->count();
                         
                         
             // var_dump($user_done);
             // exit;
             
-            if(count($user_done) > 0 && \Auth::id() == $user_done->user_id){
+            if($user_done > 0 && \Auth::id() == $user_done->user_id){
                 
             $count_doneings = DB::table('user_done')
                             ->where('done_id',  $joined_micropost->id)
