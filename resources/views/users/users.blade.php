@@ -34,10 +34,27 @@
             </div>
         </div>
     </li>
-    <?php $i++; ?>
+    <?php $i++;?>
 @endforeach
+<<<<<<< HEAD
 <h3>現在の参加者は{{ $i }}人です。<h3>
 <h3>現在のDONE人数は{{ $i }}人です。</h3>
+=======
+    <?php 
+        $count_doneings = DB::table('user_done')->where('done_id',  $microposts->id)->get();
+        // var_dump($count_doneings);
+        // exit;
+    ?>
+    <h3>現在の参加者は{{ $i }}人です。<h3>
+    <h3>現在の目標達成人数は{{ count($count_doneings) }}人です。<h3>
+    <h3>現在の掛け金の合計は{{ $i * 100 }}円です。</h3>
+    @if(count($count_doneings) > 0)
+    <h3>現在の分配金の合計は{{ $i * 100 / count($count_doneings) }}円です。</h3>
+    @else(count($count_doneings == 0))
+    <h3>現在の分配金の合計は0円です。</h3>
+    @endif
+    
+>>>>>>> 0079eef7b8c2b027864dc2b3a817bbe29a7102b4
 </ul>
 {!! $users->render() !!}
 @endif

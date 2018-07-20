@@ -14,6 +14,7 @@
                           <input type='hidden' name='microposts_id' value={{ $microposts->id }}>
                       </div>
                   {!! Form::close() !!}
+                  
     </div>
     <div class="col-md-6">             
         <ul class="media-list">

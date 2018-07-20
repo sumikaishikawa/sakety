@@ -14,9 +14,7 @@
             　 <!--@include('user_follow.follow_button', ['user' => $user])-->
             　 @if (Auth::user()->id == $user->id)
                 <?php 
-                $regpoint = 500;
-                $point = $regpoint - 50 * $count_favoritings;
-                print("あなたの所持ポイントは"); echo ($point); print("ptです")
+                print("あなたの所持ポイントは"); echo ($point00); print("円です")
                 ?>
                 @endif
         </aside>
@@ -30,6 +28,7 @@
             </ul>
             @if (Auth::user()->id == $user->id)
                   {!! Form::open(['route' => 'microposts.store']) !!}
+                 
                       <div class="form-group">
                           <p>Target</p>
                           {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}

@@ -8,16 +8,17 @@ class UserDoneController extends Controller
 {
     public function store(Request $request, $id)
     {
+        // var_dump($request->invisible);
+        // exit;
         if(\Auth::user()->id == $id){
-        \Auth::user()->done($id);
+        \Auth::user()->done($request->invisible);
         }
-                return redirect()->back();
-
+        return redirect()->back();
     }
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        \Auth::user()->undone($id);
+        \Auth::user()->undone($request->invisible);
         return redirect()->back();
     }
 }

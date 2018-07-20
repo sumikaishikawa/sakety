@@ -32,10 +32,6 @@
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
                     {!! Form::close() !!}
                 </div>
-                
-                
-                
-                
             </div>
         </div>
     </li>

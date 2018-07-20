@@ -71,12 +71,19 @@ class MicropostsController extends Controller
         $micropost = Micropost::find($id);
         $users = $micropost->favoriters()->paginate(10);
         $comment = Comment::where('microposts_id', $id)->get();
+        $user = \Auth::user();
+        $count_doneings = $micropost->doneings()->count();
+        // var_dump($micropost->doneings());
+        // exit;
+        
+        
         // $comment = Comment::get();
 
         return view('microposts.edit', [
             'microposts' => $micropost,
             'users' => $users,
             'comments' => $comment,
+            'count_doneings' => $count_doneings,
         ]);
     }
     
@@ -90,4 +97,20 @@ class MicropostsController extends Controller
 
         return redirect()->back();
     }
+    
+    public function doneings($id)
+    {
+        $micropost = Micropost::find($id);
+        $doneings = $micropost->doneings()->paginate(10);
+
+        $data = [
+            'user' => $user,
+            'microposts' => $doneings,
+        ];
+
+        $data += $this->counts($user);
+
+        return view('users.doneings', $data);
+    }
+    
 }

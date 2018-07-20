@@ -18,9 +18,20 @@ class Micropost extends Model
         return $this->belongsToMany(User::class, 'user_favorite', 'favorite_id', 'user_id')->withTimestamps();
     }
     
+    public function doners()
+    {
+        return $this->hasMany(User::class, 'user_done', 'done_id', 'user_id')->withTimestamps();
+    }
+    
     public function comments()
     {
         return $this->hasMany(Comment::class);
+        
+    }
+    
+    public function doneings()
+    {
+        return $this->belongsToMany(User::class, 'user_done', 'user_id', 'done_id')->withTimestamps();
     }
     
 }

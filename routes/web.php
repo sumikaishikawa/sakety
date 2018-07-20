@@ -36,12 +36,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('done', 'UserDoneController@store')->name('users.done');
         Route::delete('undone', 'UserDoneController@destroy')->name('users.undone');
         Route::get('doneings', 'UsersController@doneings')->name('users.doneings');
+        Route::get('doners', 'UsersController@doners')->name('users.doners');
 
         
     });
 
     Route::resource('microposts', 'MicropostsController', ['only' => ['store', 'update', 'destroy', 'edit']]);
     Route::resource('comments', 'CommentsController', ['only' => ['store', 'update', 'destroy', 'edit']]);
+    Route::resource('point', 'PointsController', ['only' => ['store', 'update']]);
     
 
 });
