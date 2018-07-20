@@ -62,7 +62,7 @@ class UsersController extends Controller
                     }
             }else{
 
-                    if(count($user_done) > 0 && \Auth::id() == $user_done->user_id){
+                    if($count_user_done > 0 && \Auth::id() == $user_done->user_id){
                          
                      $count_doneings = DB::table('user_done')
                                      ->where('done_id',  $joined_micropost->id)
