@@ -5,6 +5,22 @@
         // exit;
         
         ?>
+        <?php
+        
+        if(is_null($user_done)){
+        ?>
+        @if (count($user_done) == 0 && Auth::id() == $user->id)
+                {!! Form::open(['route' => ['users.done', $user->id]]) !!}
+                    {!! Form::hidden('invisible', $microposts->id) !!}
+                    {!! Form::submit('doneにする', ['class' => "btn btn-default btn-xs"]) !!}
+                {!! Form::close() !!}
+        <?php
+        }
+        ?>
+        
+        
+        
+        
         
         @if (count($user_done) > 0 && Auth::id() == $user->id)
                 {!! Form::open(['route' => ['users.undone', $user->id], 'method' => 'delete']) !!}
