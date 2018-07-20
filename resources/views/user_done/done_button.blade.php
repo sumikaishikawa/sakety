@@ -46,19 +46,4 @@
         
         
         
-        
-        <!--@if (count($user_done) > 0 && Auth::id() == $user->id)-->
-        <!--        {!! Form::open(['route' => ['users.undone', $user->id], 'method' => 'delete']) !!}-->
-        <!--            {!! Form::hidden('invisible', $microposts->id) !!}-->
-        <!--            {!! Form::submit('done', ['class' => "btn btn-success btn-xs"]) !!}-->
-        <!--        {!! Form::close() !!}-->
-        <!--@elseif (count($user_done) == 0 && Auth::id() == $user->id)-->
-        <!--        {!! Form::open(['route' => ['users.done', $user->id]]) !!}-->
-        <!--            {!! Form::hidden('invisible', $microposts->id) !!}-->
-        <!--            {!! Form::submit('doneにする', ['class' => "btn btn-default btn-xs"]) !!}-->
-        <!--        {!! Form::close() !!}-->
-        <!--@elseif(count($user_done) > 0 && Auth::id() != $user->id)-->
-        <!--        <a class="btn btn-success btn-xs" href="#" role="button">done</a>-->
-        <!--@elseif(count($user_done) == 0 && Auth::id() != $user->id)-->
-        <!--        <a class="btn btn-default btn-xs" href="#" role="button">doneにする</a>-->
-        <!--@endif-->
+       
