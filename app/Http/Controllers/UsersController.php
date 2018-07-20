@@ -42,7 +42,6 @@ class UsersController extends Controller
                         ->where([['done_id',  $joined_micropost->id],['user_id', $user->id]])
                         ->first();
                         
-                        
             // var_dump($user_done);
             // exit;
             
@@ -191,4 +190,3 @@ class UsersController extends Controller
     
     
 }
-
