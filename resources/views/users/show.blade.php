@@ -14,7 +14,7 @@
             　 <!--@include('user_follow.follow_button', ['user' => $user])-->
             　 @if (Auth::user()->id == $user->id)
                 <?php 
-                print("あなたの所持ポイントは"); echo ($point00); print("円です")
+                print("あなたの所持ポイントは"); echo ($point00); print("ポイントです。")
                 ?>
                 @endif
         </aside>

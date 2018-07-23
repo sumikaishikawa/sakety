@@ -5,10 +5,81 @@
 /*    background: url('public/images/BG.jpg');*/
 /*}*/
 
+@import url(https://fonts.googleapis.com/css?family=Lato:900);
+*, *:before, *:after{
+  box-sizing:border-box;
+}
+body{
+  font-family: 'Lato', sans-serif;
+}
+div.foo{
+  width: 100%;
+  margin-right: auto;
+  text-align: center;
+}
+.letter{
+  display: inline-block;
+  font-weight: 900;
+  font-size: 8em;
+  margin: 0.2em;
+  position: relative;
+  color: black;
+  transform-style: preserve-3d;
+  perspective: 400;
+  z-index: 1;
+}
+.letter:before, .letter:after{
+  position:absolute;
+  content: attr(data-letter);
+  transform-origin: top left;
+  top:0;
+  left:0;
+}
+.letter, .letter:before, .letter:after{
+  transition: all 0.3s ease-in-out;
+}
+.letter:before{
+  color: #fff;
+  text-shadow: 
+    -1px 0px 1px rgba(255,255,255,.8),
+    1px 0px 1px rgba(0,0,0,.8);
+  z-index: 3;
+  transform:
+    rotateX(0deg)
+    rotateY(-15deg)
+    rotateZ(0deg);
+}
+.letter:after{
+  color: rgba(0,0,0,.11);
+  z-index:2;
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(0deg)
+    rotateZ(0deg)
+    skew(0deg,1deg);
+}
+.letter:hover:before{
+  color: #fafafa;
+  transform:
+    rotateX(0deg)
+    rotateY(-40deg)
+    rotateZ(0deg);
+}
+.letter:hover:after{
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(40deg)
+    rotateZ(0deg)
+    skew(0deg,22deg);
+}
+
 body {
-    /*background: #f2f2f2;*/
-   background: radial-gradient(#c9d6ff,#E2E2E2);
-    /* 画像を常に天地左右の中央に配置 */
+    background: #FFEFD5;
+   /*background-image: url("/images/tower.jpg");*/
+   
+    /* 画像を常6に天地左右の中央に配置 */
     background-position: center center;
    
     /* 画像をタイル状に繰り返し表示しない */
@@ -24,7 +95,11 @@ body {
     /*background-color:#FFFFEE*/
 }
 
+.transparent {
+height: 210%;
+  background: rgba(255,255,255,0.5);
 
+}
 
 
 /*microposts*/
@@ -194,12 +269,19 @@ text-align: center
 .yumabtn {
   
   border: 2px solid #333;
-  color: #fff;
+  color: white;
+  background-color: white;
   line-height: 50px;
   margin:auto;
   width:200px;
   
 }
+
+yumabtn:link { color: #0000ff; }
+yumabtn:visited { color: #000080; }
+yumabtn:hover { color: #ff0000; }
+yumabtn:active { color: #ff8000; }
+
 
 .yumabtn:hover {
   background-color: #fff;
@@ -242,4 +324,36 @@ text-align: center
   background-color: #fff;
   border-color: black;
   color: black;
+}
+
+
+.bet {
+  font-family: 'Vollkorn', serif;
+  font-size: 80px;
+  color:#755d41;
+  text-shadow:0 2px 0 #755d41,0 2px 1px rgba(0,0,0,0.8);
+  margin-top: -40px;
+}
+.bet:before {
+  color:#b6a57a;
+  -webkit-mask-image:-webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%, rgba(0,0,0,0));
+}
+.bet:after {
+  color:#fff;
+  -webkit-mask-image:-webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 36%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.2) 44%, rgba(0,0,0,0) 60%, rgba(0,0,0,0));
+}
+
+.anata{
+    text-align: center;
+    
+     
+  border: 2px solid #333;
+  color: white;
+  background-color: white;
+  line-height: 50px;
+  margin:auto;
+  width:200px;
+  
+    
+    
 }
