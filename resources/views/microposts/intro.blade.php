@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <h1>Introduction</h1>
 
 <h3>STEP1: 目標に参加しよう</h3>
@@ -15,6 +16,10 @@
 <img src="images/done.png" alt="DONE"　width="300" height="200"><br><br>
         
         
+
+
+        <h1>Introduction</h1>
+
     
      
 @endsection

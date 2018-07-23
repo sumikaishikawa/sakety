@@ -4,6 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User; 
+
+use App\Micropost;// add
+
+use App\Point;// add
+
+use App\Intro;
+
 class IntroController extends Controller
 {
     /**
@@ -14,6 +22,7 @@ class IntroController extends Controller
     public function index()
     {
         return view('microposts.intro');
+ 
     }
 
     /**
