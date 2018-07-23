@@ -13,10 +13,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
-                        <!--<li>{!! link_to_route('users.index', 'Users') !!}</li>  -->
+                        <!--<li><i class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></i>-->
+                        <!--</li>-->
+                        
                         <li><a href='{{route('users.index')}}'><i class="fas fa-user-friends"></i> Users</a></li>
-                        
-                        
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                             

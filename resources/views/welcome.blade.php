@@ -42,10 +42,5 @@
         <div class="yumabtn">
             {!! link_to_route('signup.get', 'Sign up now!', null ) !!}
         </div>
-        <br>
-        <div class="slide-left">
-            <h1>introduction</h1>
-        </div>
-        
     @endif
 @endsection
