@@ -21,7 +21,8 @@ class IntroController extends Controller
      */
     public function index()
     {
-      return view('microposts.intro');
+        return view('microposts.intro');
+ 
     }
 
     /**

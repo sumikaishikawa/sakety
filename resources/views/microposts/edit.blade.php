@@ -30,7 +30,11 @@
                         </div>
                         <div>
                             <p>{!! nl2br(e($comment->content)) !!}</p>
+<<<<<<< HEAD
+
+=======
                             <input type="text" id="datepickerFrom" class="form-control" name="dateto_id" placeholder="開始日を選んでください" autocomplete="off">
+>>>>>>> master
                         </div>
                         <div class="button-inline button-group">
                         <!--@if (Auth::id() == $comment->user_id)-->

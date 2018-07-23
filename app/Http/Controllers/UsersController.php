@@ -39,18 +39,24 @@ class UsersController extends Controller
                         ->where([['done_id',  $joined_micropost->id],['user_id', $user->id]])
                         ->first();
                         
+<<<<<<< HEAD
 
             // var_dump($user_done);
             // exit;
             
             if(count($user_done) > 0 && \Auth::id() == $user_done->user_id){
 
+=======
+>>>>>>> emi
             $count_user_done = DB::table('user_done')
                                 ->where([['done_id',  $joined_micropost->id],['user_id', $user->id]])
                                 ->count();
 
             if(is_null($count_user_done)){
+<<<<<<< HEAD
 
+=======
+>>>>>>> emi
                 
                     if($cont_user_done = 0 && \Auth::id() == $user_done->user_id){
                          
