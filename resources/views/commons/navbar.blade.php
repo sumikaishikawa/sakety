@@ -19,7 +19,8 @@
                         <li>{!! link_to_route('microposts.intro', 'How to use') !!}</li>
                           
                         <li><a href='{{route('users.index')}}'><i class="fas fa-user-friends"></i> Users</a></li>
-                          
+                        
+                         
                         <li>{!! link_to_route('users.show', 'My profile', ['id' => Auth::id()]) !!}</li>
                         
                         <li>{!! link_to_route('logout.get', 'Logout') !!}</li>

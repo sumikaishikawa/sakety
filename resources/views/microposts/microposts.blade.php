@@ -36,6 +36,7 @@
             </div>
         </div>
     </li>
+
 @endforeach
 </ul>
 {!! $microposts->render() !!}
