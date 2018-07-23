@@ -8,7 +8,8 @@
                     <h3 class="panel-title">{{ $user->name }}</h3>
                 </div>
                 <div class="panel-body">
-                    <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->email, 500) }}" alt="">
+                    <!--<img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->email, 500) }}" alt="">-->
+                    <img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="">
                 </div>
                 <div>
                     <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
@@ -41,6 +42,7 @@
                                 <input type="text" id="datepickerTo" class="form-control" name="datefrom_id" placeholder="終了日を選んでください" autocomplete="off">
                               </div>
                               {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+
                           </div>
                       {!! Form::close() !!}
                 @endif

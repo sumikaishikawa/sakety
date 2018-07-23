@@ -85,6 +85,8 @@ class MicropostsController extends Controller
             'comments' => $comment,
             'count_doneings' => $count_doneings,
         ]);
+        
+      
     }
     
     public function destroy($id)

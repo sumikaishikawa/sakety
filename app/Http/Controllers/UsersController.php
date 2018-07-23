@@ -39,11 +39,18 @@ class UsersController extends Controller
                         ->where([['done_id',  $joined_micropost->id],['user_id', $user->id]])
                         ->first();
                         
+
+            // var_dump($user_done);
+            // exit;
+            
+            if(count($user_done) > 0 && \Auth::id() == $user_done->user_id){
+
             $count_user_done = DB::table('user_done')
                                 ->where([['done_id',  $joined_micropost->id],['user_id', $user->id]])
                                 ->count();
 
             if(is_null($count_user_done)){
+
                 
                     if($cont_user_done = 0 && \Auth::id() == $user_done->user_id){
                          
@@ -92,6 +99,7 @@ class UsersController extends Controller
         $data += $this->counts($user);
 
         return view('users.show', $data);
+    }
     }
     
      public function followings($id)
@@ -206,4 +214,3 @@ class UsersController extends Controller
     
     
 }
-

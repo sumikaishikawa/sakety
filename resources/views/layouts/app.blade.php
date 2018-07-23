@@ -57,7 +57,10 @@
 
             @yield('content')
         </div>
-        <script>$(window).fadeThis();</script>
+        <script>
+            $(window).fadeThis();
+        </script>
+
     </body>
 </html>
 
