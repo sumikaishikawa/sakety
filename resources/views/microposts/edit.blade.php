@@ -14,6 +14,7 @@
                           <input type='hidden' name='microposts_id' value={{ $microposts->id }}>
                       </div>
                   {!! Form::close() !!}
+                  
     </div>
     <div class="col-md-6">             
         <ul class="media-list">
@@ -29,6 +30,7 @@
                         </div>
                         <div>
                             <p>{!! nl2br(e($comment->content)) !!}</p>
+
                         </div>
                         <div class="button-inline button-group">
                         <!--@if (Auth::id() == $comment->user_id)-->

@@ -7,14 +7,15 @@
     <li class="micropost">
         <div class="media-left">
             <img class="media-object img-rounded" src="{{ Gravatar::src($user->email, 50) }}" alt="">
+           
         </div>
         <div class="media-body">
-            <div>
+            <div class="bb">
                 {!! link_to_route('users.show', $user->name, ['id' => $user->id]) !!} <span class="text-muted">posted at {{ $micropost->created_at }}</span>
             </div>
-            <div>
-                <p>{!! nl2br(e($micropost->content)) !!}</p>
-                <p>start:{!! nl2br(e($micropost->dateto_id)) !!} end:{!! nl2br(e($micropost->datefrom_id)) !!}</p>
+            <div class="aa">
+                <p class="content">{!! nl2br(e($micropost->content)) !!}<maxlength="10"></maxlength></p>
+                <p class="date"> start:{!! nl2br(e($micropost->dateto_id)) !!} end:{!! nl2br(e($micropost->datefrom_id)) !!}</p>
             </div>
             
             <div class="row">
@@ -27,13 +28,11 @@
                   
                 </div>
                 <div class="col-xs-3">
+                    {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                    {!! Form::close() !!}
                 </div>
-                
-                
-                
-                
             </div>
         </div>
     </li>
