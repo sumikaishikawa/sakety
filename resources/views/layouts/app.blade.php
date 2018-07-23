@@ -18,6 +18,10 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css" >
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css" >
+        <!--FadeThis-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="jquery.fadethis.min.js"></script>
+
         
         <script>
         $( function() {
@@ -43,7 +47,7 @@
             });
         });
         
-        
+            
         </script>
     </head>
     <body>
@@ -54,6 +58,10 @@
 
             @yield('content')
         </div>
+        <script>
+            $(window).fadeThis();
+        </script>
+    
     </body>
 </html>
 

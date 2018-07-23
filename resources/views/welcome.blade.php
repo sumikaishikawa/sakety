@@ -34,15 +34,18 @@
             </div>
         </div>
     @else
-       
-            <div class=top>
-                <p1>Target Share</p1>
-            </div>
-                
-                
-                <br>
-                <div class="yumabtn">{!! link_to_route('signup.get', 'Sign up now!', null ) !!}</div>
-            
-       
+        
+        <div class=top>
+            <p1>Target Share</p1>
+        </div>
+        <br>
+        <div class="yumabtn">
+            {!! link_to_route('signup.get', 'Sign up now!', null ) !!}
+        </div>
+        <br>
+        <div class="slide-left">
+            <h1>introduction</h1>
+        </div>
+        
     @endif
 @endsection
