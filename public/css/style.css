@@ -76,8 +76,13 @@ div.foo{
 }
 
 body {
+<<<<<<< HEAD
     /*background: #f2f2f2;*/
    background-image: url("/images/tower.jpg");
+=======
+    background: #FFEFD5;
+   /*background-image: url("/images/tower.jpg");*/
+>>>>>>> taito
    
     /* 画像を常6に天地左右の中央に配置 */
     background-position: center center;
@@ -184,8 +189,29 @@ word-wrap: normal;
    width:750px;
    margin:auto;
    
+<<<<<<< HEAD
    
 }
+=======
+   }
+/*.media:before, .media:after{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: -10px;*/
+/*    width: 2px;*/
+/*    height: -webkit-calc(100% + 20px);*/
+/*    height: calc(100% + 20px);*/
+/*    background-color: black;*/
+/*}*/
+
+/*.media:before{*/
+/*    left: 10px;*/
+/*}*/
+
+/*.media:after{*/
+/*    right: 10px;*/
+/*}*/
+>>>>>>> taito
 
 /*comment*/
 

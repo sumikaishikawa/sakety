@@ -7,24 +7,25 @@
     <div class="row">
     <div class="col-md-6">
             @include('users.users', ['users' => $users])
-                  {!! Form::open(['route' => 'comments.store']) !!}
-                      <div class="form-group">
-                          {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
-                          {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
-                          <input type='hidden' name='microposts_id' value={{ $microposts->id }}>
-                      </div>
-                  {!! Form::close() !!}
                   
     </div>
     <div class="col-md-6">             
-        <ul class="media-list">
+                  {!! Form::open(['route' => 'comments.store']) !!}
+                      <div class="form-group">
+                          {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
+                          {!! Form::submit('Post', ['class' => 'btn btn-danger btn-block']) !!}
+                          <input type='hidden' name='microposts_id' value={{ $microposts->id }}>
+                      </div>
+                  {!! Form::close() !!}
+
+        <ul class="media-list-1">
             @foreach ($comments as $comment)
+                <ul role="separator" class="divider"></ul>
                 <?php $user = $comment->user; ?>
-                <li class="media">
-                    <div class="media-left">
-                        <img class="media-object img-rounded" src="{{ Gravatar::src($user->email, 50) }}" alt="">
-                    </div>
-                    <div class="media-body">
+                <div class="media-1">
+                    
+
+                    <div class="media-body-1">
                         <div>
                             {!! link_to_route('users.show', $user->name, ['id' => $user->id]) !!} <span class="text-muted">posted at {{ $comment->created_at }}</span>
                         </div>
@@ -40,9 +41,38 @@
                         <!--@endif -->
                         </div>
                     </div>
-                </li>
+                </div>
+<style type="text/css">
+.media-1{
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+}
+.media-1:before, .box17:after{
+    content: '';
+    position: relative;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: black;
+}
+.media-1:before {left: 10px;}
+.media-1:after {right: 10px;}
+.media-1 p {
+    margin: 0; 
+    padding: 0;
+}
+h1{font-family:'SimSun','NSimSun';
+        
+    }
+
+
+</style>
+
             @endforeach
-        </ul>
     </div> 
      
 @endsection
