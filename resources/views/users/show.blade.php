@@ -54,7 +54,7 @@
                                 <input type="text" id="datepickerTo" class="form-control" name="datefrom_id" placeholder="終了日を選んでください" autocomplete="off">
                               </div>
                               <br>
-                              {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+                              {!! Form::submit('目標新規投稿', ['class' => 'btn btn-primary btn-block']) !!}
 
                           </div>
                       {!! Form::close() !!}

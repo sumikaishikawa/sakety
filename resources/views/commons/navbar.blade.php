@@ -16,9 +16,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
 
-                        <li><a href='{{route('microposts.intro')}}'><i class="far fa-play-circle"></i> How to Use</a></li>
+                        <li><a href='{{route('microposts.intro')}}'><i class="far fa-question-circle"></i> How to Use</a></li>
                         
-                        <li><a href='{{route('microposts.point')}}'><i class="far fa-play-circle"></i> What's POINT</a></li>
+                        <li><a href='{{route('microposts.point')}}'><i class="far fa-question-circle"></i> What's POINT</a></li>
                           
                         <li><a href='{{route('users.index')}}'><i class="fas fa-user-friends"></i> Users</a></li>
                         

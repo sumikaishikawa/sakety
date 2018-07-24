@@ -101,17 +101,12 @@ height: 210%;
 /*microposts*/
 
 .micropost{
-    
-    
     padding: 0.5em 1em;
     margin: 2em 0;
     color: #6091d3;/*文字色*/
     background: #FFF;
-    border: solid 3px #6091d3;/*線*/
+    border: solid 3px #000000;/*線*/
     border-radius: 10px;/*角の丸み*/
-    
-    
-    
 }
 
 .micropost .bb{
@@ -120,12 +115,13 @@ height: 210%;
 
 
 .micropost .aa .content{
-     font-size: 35px;
+     font-size: 30px;
      font-weight: bolder;
-      color: #DC143C;
+      color: #000;
       text-shadow:0 2px 1px rgba(255, 255, 255, 0.5);
       word-wrap: normal;
       width: 19em;
+      font-family:'SimSun','NSimSun';
 
 }
 
