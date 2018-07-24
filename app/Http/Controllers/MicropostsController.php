@@ -21,10 +21,14 @@ class MicropostsController extends Controller
     public function index()
     {
         $data = [];
-        if (\Auth::check()) {
+        if (\Auth::check()) { 
+            $query = $_POST["search"]??'';
+
             $user = \Auth::user();
             $microposts = $user->feed_microposts()->orderBy('created_at', 'desc')->paginate(10);
-
+            if(!empty($query)){
+                $microposts = $user->feed_microposts()->orderBy('created_at', 'desc')->where('content', 'LIKE', '%' . $query . '%')->paginate(10);
+            }
             $data = [
                 'user' => $user,
                 'microposts' => $microposts,

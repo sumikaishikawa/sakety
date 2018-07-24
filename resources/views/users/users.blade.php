@@ -52,7 +52,7 @@
     @endif
     
     <style type="text/css">
-        h3{font-family:'NSimSun','SimSun';
+        h3{font-family:YuGothic,'Yu Gothic','ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
         }
         p1{font-weight:700;
         }

@@ -6,28 +6,21 @@
 @section('content')
     @if (Auth::check())
     
-    <div class='post'>
-     @if (Auth::user()->id == $user->id)
-          {!! Form::open(['route' => 'microposts.store']) !!}
-              <div class="form-group">
-                  <p>Target</p>
-                  {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
-                  <p>Deadline</p>
-                  <div class="input-group input-daterange">
-                    <input type="text" id="datepickerFrom" class="form-control" name="dateto_id" placeholder="開始日を選んでください" autocomplete="off">
-                    <div class="input-group-addon">to</div>
-                    <input type="text" id="datepickerTo" class="form-control" name="datefrom_id" placeholder="終了日を選んでください" autocomplete="off">
-                  </div>
-                  {!! Form::submit('Post', ['class' => 'btn btn-info btn-block']) !!}
-              </div>
-          {!! Form::close() !!}
-    @endif
-  </div>  
-            
         <div class="row">
             <aside class="col-xs-2">
             </aside>
             <div class="col-xs-8">
+                	{!! Form::open(['route' => ['microposts.search']]) !!}
+                        {!! Form::text('search', null,
+                                               array('required',
+                                                    'class'=>'form-control',
+                                                    'placeholder'=>'Search for a task...')) !!}
+                         {!! Form::submit('Search',
+                                                    array('class'=>'btn btn-default')) !!}
+                     {!! Form::close() !!}
+                     
+                     
+                     
                 @if (count($microposts) > 0)
                     @include('microposts.microposts', ['microposts' => $microposts])
                 @endif
@@ -44,3 +37,4 @@
         </div>
     @endif
 @endsection
+

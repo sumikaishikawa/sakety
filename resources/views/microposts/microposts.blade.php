@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-xs-3">
                     <i class="fas fa-users"></i>
-                    <a href="{{ route('microposts.edit', ['id' => $micropost->id]) }}" class="btn btn-default btn-xs btn-inline" role="button" >Cowokers</a>
+                    <a href="{{ route('microposts.edit', ['id' => $micropost->id]) }}" class="btn btn-default btn-xs btn-inline" role="button" >Detail</a>
                   
                 </div>
                 <div class="col-xs-3">

@@ -22,6 +22,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::get('intro', 'IntroController@index')->name('microposts.intro');
 
 Route::get('intro', 'IntroController@index')->name('microposts.intro');
+Route::get('point', 'PointController@index')->name('microposts.point');
 
 Route::group(['middleware' => 'auth'], function () {
     
@@ -50,5 +51,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('comments', 'CommentsController', ['only' => ['store', 'update', 'destroy', 'edit']]);
     Route::resource('point', 'PointsController', ['only' => ['store', 'update']]);
     
+    Route::post('/', 'MicropostsController@index')->name('microposts.search');
 
 });

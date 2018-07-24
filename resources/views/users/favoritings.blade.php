@@ -23,7 +23,7 @@
             	<div class="panel-body">
             	    <p>
                     <?php 
-                     echo ($point00);
+                     echo ($point00); print("pt");
                     ?>
                     </p>
             	</div>
@@ -33,12 +33,23 @@
         </aside>
         <div class="col-xs-8">
             <ul class="nav nav-tabs nav-justified">
-                <li role="presentation" class="{{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show', ['id' => $user->id]) }}">TimeLine <span class="badge">{{ $count_microposts }}</span></a></li>
+               <li role="presentation" class="{{ Request::is('users/*/favoritings') ? 'active' : '' }}"><a href="{{ route('users.favoritings', ['id' => $user->id]) }}">Joined events <span class="badge">{{ $count_favoritings }}</span></a></li>
                 <!--<li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">Followings <span class="badge">{{ $count_followings }}</span></a></li>-->
                 <!--<li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">Followers <span class="badge">{{ $count_followers }}</span></a></li>-->
-                <li role="presentation" class="{{ Request::is('users/*/favoritings') ? 'active' : '' }}"><a href="{{ route('users.favoritings', ['id' => $user->id]) }}">Joined events <span class="badge">{{ $count_favoritings }}</span></a></li>
+                <li role="presentation" class="{{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show', ['id' => $user->id]) }}">Post Target <span class="badge">{{ $count_microposts }}</span></a></li>
             </ul>
             @include('microposts.microposts', ['microposts' => $microposts])
         </div>
     </div>
 @endsection
+
+
+<!--css-->
+<style type="text/css">
+
+#point .panel-body {
+    font-size: 25px;
+}
+
+
+</style>

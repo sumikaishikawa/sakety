@@ -17,14 +17,23 @@
                     @if (Auth::check())
 
                         <li><a href='{{route('microposts.intro')}}'><i class="far fa-play-circle"></i> How to Use</a></li>
+                        
+                        <li><a href='{{route('microposts.point')}}'><i class="far fa-play-circle"></i> What's POINT</a></li>
                           
                         <li><a href='{{route('users.index')}}'><i class="fas fa-user-friends"></i> Users</a></li>
                         
-                        <li>{!! link_to_route('users.show', 'My profile', ['id' => Auth::id()]) !!}</li>
-                        
-                        <li><a href='{{route('logout.get')}}'><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                        
-                        <li><a href="#">{{ Auth::user()->name }}</a></li>
+                        <li class="dropdown">
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                             <ul class="dropdown-menu">
+                                 
+                                 <li>{!! link_to_route('users.show', 'My profile', ['id' => Auth::id()]) !!}</li>
+                                 
+                                 <li role="separator" class="divider"></li>
+                                 
+                                 <li><a href='{{route('logout.get')}}'><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                             </ul>
+                             
+                        </li>
                         
                         
                         
