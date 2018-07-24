@@ -1,4 +1,4 @@
-        <?php 
+<?php 
         $user_done = DB::table('user_done')->where([['done_id',  $microposts->id],['user_id', $user->id]])->count();
         
         // var_dump($user_done);
@@ -42,8 +42,3 @@
         <?php      
         }
         ?>
-        
-        
-        
-        
-       
