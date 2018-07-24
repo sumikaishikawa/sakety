@@ -17,7 +17,7 @@
             	<div class="panel-heading">
             		<span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
             		<?php 
-                    print("所持ポイント");
+                    print("総保有ポイント");
                     ?>
             	</div>
             	<div class="panel-body">
@@ -42,14 +42,17 @@
                 @if (Auth::user()->id == $user->id)
                       {!! Form::open(['route' => 'microposts.store']) !!}
                           <div class="form-group">
+                              <br>
                               <p>Target</p>
                               {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
+                              <br>
                               <p>Deadline</p>
                               <div class="input-group input-daterange">
                                 <input type="text" id="datepickerFrom" class="form-control" name="dateto_id" placeholder="開始日を選んでください" autocomplete="off">
                                 <div class="input-group-addon">to</div>
                                 <input type="text" id="datepickerTo" class="form-control" name="datefrom_id" placeholder="終了日を選んでください" autocomplete="off">
                               </div>
+                              <br>
                               {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
 
                           </div>
