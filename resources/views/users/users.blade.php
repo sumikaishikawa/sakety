@@ -62,8 +62,9 @@
 </ul>
 
 <style type="text/css">
-    .p1:
-            
+    .p1{
+        
+    }
 </style>
 {!! $users->render() !!}
 @endif

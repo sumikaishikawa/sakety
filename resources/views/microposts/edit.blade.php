@@ -23,13 +23,14 @@
                 <ul role="separator" class="divider"></ul>
                 <?php $user = $comment->user; ?>
                 <div class="media-1">
-                    
-
-                    <div class="media-body-1">
+                    <div class="media-left">
+                        <img class="media-object img-rounded" src="{{ Gravatar::src($user->email, 50) }}" alt="">
+                    </div>
+                    <div class="media-body">
                         <div>
                             {!! link_to_route('users.show', $user->name, ['id' => $user->id]) !!} <span class="text-muted">posted at {{ $comment->created_at }}</span>
                         </div>
-                        <div>
+                        <div class="content">
                             <p>{!! nl2br(e($comment->content)) !!}</p>
 
                         </div>
@@ -68,6 +69,10 @@
 h1{font-family:'SimSun','NSimSun';
         
     }
+    
+.content{
+    font-size: 20px;
+}
 
 
 </style>
