@@ -16,13 +16,13 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
 
-                        <li>{!! link_to_route('microposts.intro', 'How to use') !!}</li>
+                        <li><a href='{{route('microposts.intro')}}'><i class="far fa-play-circle"></i> How to Use</a></li>
                           
                         <li><a href='{{route('users.index')}}'><i class="fas fa-user-friends"></i> Users</a></li>
-                          
+                        
                         <li>{!! link_to_route('users.show', 'My profile', ['id' => Auth::id()]) !!}</li>
                         
-                        <li>{!! link_to_route('logout.get', 'Logout') !!}</li>
+                        <li><a href='{{route('logout.get')}}'><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                         
                         <li><a href="#">{{ Auth::user()->name }}</a></li>
                         

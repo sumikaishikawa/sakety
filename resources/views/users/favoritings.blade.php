@@ -8,18 +8,28 @@
                     <h3 class="panel-title">{{ $user->name }}</h3>
                 </div>
                 <div class="panel-body">
-                    <!--<img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->email, 500) }}" alt="">-->
-                    <img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="">
+                    <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->email, 500) }}" alt="">
+                    <!--<img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="">-->
                 </div>
             </div>
+            @if(Auth::user()->id == $user->id)
+            <div class="panel panel-default" id='point'>
+            	<div class="panel-heading">
+            		<span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+            		<?php 
+                    print("総保有ポイント");
+                    ?>
+            	</div>
+            	<div class="panel-body">
+            	    <p>
+                    <?php 
+                     echo ($point00);
+                    ?>
+                    </p>
+            	</div>
+            </div>
+            @endif
             　 <!--@include('user_follow.follow_button', ['user' => $user])-->
-            　 @if (Auth::user()->id == $user->id)
-                <?php 
-                $regpoint = 500;
-                $point = $regpoint - 50 * $count_favoritings;
-                print("あなたの所持ポイントは"); echo ($point); print("ptです")
-                ?>
-                @endif
         </aside>
         <div class="col-xs-8">
             <ul class="nav nav-tabs nav-justified">

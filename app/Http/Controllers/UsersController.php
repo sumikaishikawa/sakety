@@ -40,18 +40,12 @@ class UsersController extends Controller
                         ->first();
                         
 
-            // var_dump($user_done);
-            // exit;
-            
-            if(count($user_done) > 0 && \Auth::id() == $user_done->user_id){
-
             $count_user_done = DB::table('user_done')
                                 ->where([['done_id',  $joined_micropost->id],['user_id', $user->id]])
                                 ->count();
 
             if(is_null($count_user_done)){
-
-                
+ 
                     if($cont_user_done = 0 && \Auth::id() == $user_done->user_id){
                          
                      $count_doneings = DB::table('user_done')
@@ -100,7 +94,6 @@ class UsersController extends Controller
 
         return view('users.show', $data);
     }
-    }
     
      public function followings($id)
     {
@@ -136,10 +129,66 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $favoritings = $user->favoritings()->paginate(10);
+        
+        $joined_microposts = $user->joined_microposts()->get();
+        $point = 500;
+        $count_favoritings = $user->favoritings()->count();
+        $point +=  - 100 * $count_favoritings;
+        
+        foreach($joined_microposts as $joined_micropost) {
+            
+            $us = $joined_micropost->favoriters()->get(); //参加者
+            
+            $user_done = DB::table('user_done')
+                        ->where([['done_id',  $joined_micropost->id],['user_id', $user->id]])
+                        ->first();
+                        
+
+            $count_user_done = DB::table('user_done')
+                                ->where([['done_id',  $joined_micropost->id],['user_id', $user->id]])
+                                ->count();
+
+            if(is_null($count_user_done)){
+ 
+                    if($cont_user_done = 0 && \Auth::id() == $user_done->user_id){
+                         
+                     $count_doneings = DB::table('user_done')
+                                     ->where('done_id',  $joined_micropost->id)
+                                     ->count();
+                     $i = count($us); //参加者数
+                     
+                         if($count_doneings  > 0) {
+                                 
+                             $point += $i * 100 / $count_doneings;
+                         }
+                         else{
+                             $point += 0;
+                         }
+                    }
+            }else{
+
+                    if($count_user_done > 0 && \Auth::id() == $user_done->user_id){
+                         
+                     $count_doneings = DB::table('user_done')
+                                     ->where('done_id',  $joined_micropost->id)
+                                     ->count();
+                     $i = count($us); //参加者数
+                     
+                         if($count_doneings  > 0) {
+                                 
+                             $point += $i * 100 / $count_doneings;
+                         }
+                         else{
+                             $point += 0;
+                         }
+                    }//①if閉じ
+            }
+        }
 
         $data = [
             'user' => $user,
             'microposts' => $favoritings,
+            'point00' => $point,
         ];
 
         $data += $this->counts($user);
@@ -197,7 +246,7 @@ class UsersController extends Controller
         return view('users.doners', $data);
     }
     
-    public function points($id)
+    public function navbar($id)
     {
         $user = User::find($id);
         $points = $user->points();

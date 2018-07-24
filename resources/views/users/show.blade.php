@@ -8,16 +8,25 @@
                     <h3 class="panel-title">{{ $user->name }}</h3>
                 </div>
                 <div class="panel-body">
-                    <!--<img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->email, 500) }}" alt="">-->
-                    <img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="">
-                </div>
-                <div>
-                    <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
-                    <?php 
-                    print("所持ポイント"); echo ($point00);
-                    ?>
+                    <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->email, 500) }}" alt="">
+                    <!--<img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="">-->
                 </div>
             </div>
+            @if(Auth::user()->id == $user->id)
+            <div class="panel panel-default">
+            	<div class="panel-heading">
+            		<span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+            		<?php 
+                    print("所持ポイント");
+                    ?>
+            	</div>
+            	<div class="panel-body">
+                    <?php 
+                     echo ($point00);
+                    ?>
+            	</div>
+            </div>
+            @endif
             　 <!--@include('user_follow.follow_button', ['user' => $user])-->
             　 
         </aside>
