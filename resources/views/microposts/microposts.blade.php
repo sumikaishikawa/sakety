@@ -28,12 +28,12 @@
                     </div>
                     <div class="col-xs-4">
                         <i class="fas fa-users"></i>
-                        <a href="{{ route('microposts.edit', ['id' => $micropost->id]) }}" class="btn btn-default btn-xs btn-inline" role="button" >Detail</a>
+                        <a href="{{ route('microposts.edit', ['id' => $micropost->id]) }}" class="btn btn-default btn-xs btn-inline" role="button" >参加者一覧</a>
                     </div>
                     <div class="col-xs-4">
                         {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                            {!! Form::submit('削除', ['class' => 'btn btn-danger btn-xs']) !!}
                         {!! Form::close() !!}
                     </div>
                 </div><!--buttonrow-->

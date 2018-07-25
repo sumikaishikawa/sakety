@@ -17,19 +17,12 @@
     @endif 
     <!--締め切り表示ここまで-->
     
-    <br>
-    <br>
-    <hr />
-    <!--区切り線-->
-    <br>
-    <br>
-    
     <div class="row">
     <div class="col-md-8 col-md-offset-2">
             @include('users.users', ['users' => $users])
                   {!! Form::open(['route' => 'comments.store']) !!}
                       <div class="form-group">
-                          {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
+                          {!! Form::textarea('content', old('content'), ['placeholder'=>'仲間と交流しよう','class' => 'form-control', 'rows' => '2']) !!}
                           {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
                           <input type='hidden' name='microposts_id' value={{ $microposts->id }}>
                       </div>
