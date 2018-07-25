@@ -5,7 +5,7 @@
 
     <h1><span>目標：{{ $microposts->content }} の参加者一覧</span></h1>
     <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8 col-md-offset-2">
             @include('users.users', ['users' => $users])
                   {!! Form::open(['route' => 'comments.store']) !!}
                       <div class="form-group">
@@ -15,7 +15,7 @@
                       </div>
                   {!! Form::close() !!}
     </div>
-    <div class="col-md-12">             
+    <div class="col-md-8 col-md-offset-2">             
         <ul class="media-list">
             @foreach ($comments as $comment)
                 <?php $user = $comment->user; ?>

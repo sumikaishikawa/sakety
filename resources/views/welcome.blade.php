@@ -5,27 +5,27 @@
 
 @section('content')
     @if (Auth::check())
-    
+    <div class="container">
         <div class="row">
-            <aside class="col-xs-2">
-            </aside>
-            <div class="col-xs-8">
-                	{!! Form::open(['route' => ['microposts.search']]) !!}
-                        {!! Form::text('search', null,
-                                               array('required',
-                                                    'class'=>'form-control',
-                                                    'placeholder'=>'Search for a task...')) !!}
-                         {!! Form::submit('Search',
-                                                    array('class'=>'btn btn-default')) !!}
-                     {!! Form::close() !!}
-                     
-                     
-                     
+            <div class="col-xs-8 col-xs-offset-2">
+            	{!! Form::open(['route' => ['microposts.search']]) !!}
+                    {!! Form::text('search', null,
+                                           array('required',
+                                                'class'=>'form-control',
+                                                'placeholder'=>'Search for a task...')) !!}
+                     {!! Form::submit('Search',
+                                                array('class'=>'btn btn-default')) !!}
+                {!! Form::close() !!}
+            </div>
+            <br>
+            <br>
+            <br>
                 @if (count($microposts) > 0)
                     @include('microposts.microposts', ['microposts' => $microposts])
                 @endif
-            </div>
+            
         </div>
+    </div><!--container last-->
     @else
         
         <div class=top>

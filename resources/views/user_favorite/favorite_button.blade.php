@@ -10,7 +10,7 @@ $today = date("Y-m-d");
             <!--期日設定-->
             @if ($today > $micropost->datefrom_id)
             <button　class="button3" type="button" disabled>
-                終了しました。
+                Closed
             </button>
             @else
             
@@ -27,11 +27,12 @@ $today = date("Y-m-d");
             <!--期日設定-->
             @if ($today > $micropost->datefrom_id)
             <button　class="button3" type="button" disabled>
-                終了しました。
+                Closed
             </button>
             @else
             
             {!! Form::submit('JOIN', ['class' => "btn btn-default btn-xs"]) !!}
-        {!! Form::close() !!}
         @endif
+        {!! Form::close() !!}
+
 @endif

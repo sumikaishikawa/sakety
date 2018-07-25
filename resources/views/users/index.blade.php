@@ -2,6 +2,7 @@
 
 @section('content')
 @if (count($users) > 0)
+<h2>ユーザー一覧</h2>
 <ul class="media-list">
     <?php $i=0; ?>
 @foreach ($users as $user)
