@@ -5,6 +5,7 @@
 
 @section('content')
     @if (Auth::check())
+
     <!--囲い枠-->
     <div class="kakomi-maru2">
     <!--新規投稿-->
@@ -51,6 +52,7 @@
                 @endif
             </div>
         </div>
+    </div><!--container last-->
     @else
         
         <div class=top>
@@ -61,6 +63,12 @@
             {!! link_to_route('signup.get', 'Sign up now!', null ) !!}
         </div>
     @endif
+    
+<style type="text/css">
+    .container{
+        text-align: center;
+    }
+</style>
 @endsection
 
 <style type="text/css">

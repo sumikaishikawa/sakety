@@ -1,6 +1,7 @@
 @extends('layouts.app')
    <link rel="stylesheet" href="{{ secure_asset('css/tab.css') }}">
 @section('content')
+<div class="container">
     <div class="row">
          <aside class="col-xs-4">
             <div class="panel panel-default">
@@ -8,8 +9,8 @@
                     <h3 class="panel-title">{{ $user->name }}</h3>
                 </div>
                 <div class="panel-body">
-                    <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->email, 500) }}" alt="">
-                    <!--<img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="">-->
+                    <!--<img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->email, 500) }}" alt="">-->
+                    <img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="" width="500" height="500">
                 </div>
             </div>
             @if(Auth::user()->id == $user->id)
@@ -27,7 +28,6 @@
             	</div>
             </div>
             @endif
-            　 <!--@include('user_follow.follow_button', ['user' => $user])-->
             　 
         </aside>
         <div class="col-xs-8">
@@ -60,12 +60,12 @@
                       {!! Form::close() !!}
                 @endif
                 @if (count($microposts) > 0)
-                    @include('microposts.microposts', ['microposts' => $microposts])
+                            @include('microposts.microposts', ['microposts' => $microposts])
                 @endif
             </div>
         </div>
     </div>
-    
+</div>
 @endsection
 
 <!--css-->
@@ -75,6 +75,22 @@
     font-size: 25px;
 }
 
+.container{
+    text-align: center;
+}
+
+#point {
+    text-align: center;
+}
+
+.panel-heading {
+    text-align: center;
+}
+
+.tab_area{
+    text-align: center;
+}
+
 .form-group .target{
     font-family: YuGothic,'Yu Gothic','ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
     font-size: 20px;
@@ -82,7 +98,7 @@
     position: relative;
     display: inline-block;
     padding: 0 55px;
-
+    text-align:center;
 }
 
 .form-group .target:before, .form-group .target:after{
@@ -107,6 +123,7 @@
     position: relative;
     display: inline-block;
     padding: 0 55px;
+    text-align:center;
 
 }
 

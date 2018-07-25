@@ -12,7 +12,7 @@
 ---------------------->
 <img src="images/Picture2.jpg" alt="リスト"　width="300" height="200"><br><br>
 
-<h3>STEP1:  ログイン時に500pt付与！</h3> 
+<h3>STEP1:  初回ログイン時に500pt付与！</h3> 
 <h4>（楽天ポイントと連携かも！？）</h4>
 <img src="images/Picture3.jpg" alt="リスト"　width="300" height="200"><br><br>
 

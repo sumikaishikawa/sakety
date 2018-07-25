@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
 <?php
     $today = date("Y-m-d");
 ?>
-    <h1><span>目標：{{ $microposts->content }} の参加者一覧</span></h1>
+    <h1><span><i class="far fa-check-circle"></i> {{ $microposts->content }} </span></h1>
+    
     <!--締め切り表示-->
     @if ($today < $microposts->datefrom_id)
             <h2><i class="fas fa-bell"></i>  期限: {{ $microposts->datefrom_id }} </h2>
@@ -16,23 +18,28 @@
     <!--締め切り表示ここまで-->
     
     <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8 col-md-offset-2">
             @include('users.users', ['users' => $users])
                   {!! Form::open(['route' => 'comments.store']) !!}
                       <div class="form-group">
-                          {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
+                          {!! Form::textarea('content', old('content'), ['placeholder'=>'仲間と交流しよう','class' => 'form-control', 'rows' => '2']) !!}
                           {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
                           <input type='hidden' name='microposts_id' value={{ $microposts->id }}>
                       </div>
                   {!! Form::close() !!}
     </div>
-    <div class="col-md-12">             
+    
+    
+    
+    
+    <div class="col-md-8 col-md-offset-2">             
         <ul class="media-list">
             @foreach ($comments as $comment)
                 <?php $user = $comment->user; ?>
                 <li class="media">
                     <div class="media-left">
-                        <img class="media-object img-rounded" src="{{ Gravatar::src($user->email, 50) }}" alt="">
+                        <img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="">
+                        　　　　　
                     </div>
                     <div class="media-body">
                         <div>
@@ -87,8 +94,20 @@
         color: red;
         font-family: 'Montserrat Subrayada';
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> 5ece050240f6e763e5e06e74ce02fe07ee7b2fe2
     
+    hr {
+      width: 30%;
+      height: 1px;
+      background: #bbb;
+      background-image: -webkit-linear-gradient(left, #eee, #777, #eee);
+      background-image: -moz-linear-gradient(left, #eee, #777, #eee);
+      background-image: -ms-linear-gradient(left, #eee, #777, #eee);
+      background-image: -o-linear-gradient(left, #eee, #777, #eee);
+    }
 </style>
      
 @endsection
