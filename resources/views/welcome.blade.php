@@ -46,6 +46,10 @@
                                                     array('class'=>'btn btn-default')) !!}
                      {!! Form::close() !!}
 
+<<<<<<< HEAD
+=======
+                     
+>>>>>>> taito
                 @if (count($microposts) > 0)
                     @include('microposts.microposts', ['microposts' => $microposts])
                 @endif
@@ -89,3 +93,7 @@
      border-radius: 20px; /*角の丸み*/
     }
 </style>
+
+
+
+

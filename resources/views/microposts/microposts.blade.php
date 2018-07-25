@@ -4,15 +4,17 @@
 
 <ul class="media-list">
 @foreach ($microposts as $micropost)
-
     <?php $user = $micropost->user; ?>
+<<<<<<< HEAD
 
+=======
+>>>>>>> taito
     <div class="container"  id="micropost">
         <div class="row">
             <li class="col-xs-12 col-md-8">
                     <div class="media-left">
                         <!--<img class="media-object img-rounded" src="{{ Gravatar::src($user->email, 50) }}" alt="">-->
-                        <img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="">
+                        <img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="" width="100" height="100">
                         　　　　　
                     </div>
                     <div class="media-body">
@@ -35,7 +37,7 @@
                     <div class="col-xs-4">
                         {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                            {!! Form::submit('削除', ['class' => 'btn btn-danger btn-xs']) !!}
                         {!! Form::close() !!}
                     </div>
                 </div><!--buttonrow-->
@@ -82,4 +84,3 @@
 @endforeach
 </ul>
 {!! $microposts->render() !!}
-

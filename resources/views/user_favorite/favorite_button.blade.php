@@ -2,11 +2,8 @@
 $today = date("Y-m-d");
 ?>
 @if (Auth::user()->is_favoritings($micropost->id))
-        {!! Form::open(['route' => ['users.unfavorite', $micropost->id], 'method' => 'delete']) !!}
-            <script defer src="https://use.fontawesome.com/releases/v5.0.11/js/all.js"></script> 
-             <!--<i class="fas fa-user-plus"></i>-->
-             <i class="fas fa-user-minus"></i>
-            
+        <i class="fas fa-user-minus"></i>
+        <a class="btn btn-success btn-xs" href="#" role="button">挑戦中</a>
             <!--期日設定-->
             @if ($today > $micropost->datefrom_id)
             <button　class="button3" type="button" disabled>
@@ -14,9 +11,6 @@ $today = date("Y-m-d");
             </button>
             @else
             
-            {!! Form::submit('UnJOIN', ['class' => "btn btn-success btn-xs"]) !!}
-                           
-        {!! Form::close() !!}
         @endif
 @else
 
@@ -31,7 +25,7 @@ $today = date("Y-m-d");
             </button>
             @else
             
-            {!! Form::submit('JOIN', ['class' => "btn btn-default btn-xs"]) !!}
+            {!! Form::submit('100ptで挑戦', ['class' => "btn btn-default btn-xs"]) !!}
         @endif
         {!! Form::close() !!}
 
