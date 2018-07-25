@@ -7,7 +7,7 @@
     <?php $user = $micropost->user; ?>
     <div class="container"  id="micropost">
         <div class="row">
-            <li class="col-xs-12">
+            <li class="col-xs-12 col-md-8">
                     <div class="media-left">
                         <img class="media-object img-rounded" src="{{ Gravatar::src($user->email, 50) }}" alt="">
                     </div>
@@ -42,13 +42,14 @@
 <style type="text/css">
     /*microposts*/
 
-    #micropost{
+    #micropost li{
         padding: 0.5em 1em;
         margin: 2em 0;
-        color: #6091d3;/*文字色*/
+        color: bkack;/*文字色*/
         background: #FFF;
         border: solid 1px #000000;/*線*/
         border-radius: 10px;/*角の丸み*/
+        text-align: center;
     }
     
     #micropost .bb{
@@ -57,14 +58,9 @@
     
     
     #micropost .aa .content{
-         /*font-size: 30px;*/
-         /*font-weight: bolder;*/
-         /* color: #000;*/
-         /* text-shadow:0 2px 1px rgba(255, 255, 255, 0.5);*/
-         /* word-wrap: normal;*/
-         /* width: 19em;*/
-         /* font-family:'SimSun','NSimSun';*/
-    
+         font-size: 30px;
+         font-weight: bolder;
+          color: #000;
     }
     
     #micropost .aa .date{
