@@ -7,9 +7,7 @@
     <?php $i=0; ?>
 @foreach ($users as $user)
     <li class="media">
-    <aside class="col-xs-2">
-    </aside>
-        <div class="col-xs-8">
+        <div class="col-md-6 col-md-offset-3">
             <div class="media-left">
 
                 <!--<img class="media-object img-rounded" src="{{ Gravatar::src($user->email, 50) }}" alt="">-->
@@ -22,10 +20,14 @@
                     </div>
             </div>
         </div>
-    <aside class="col-xs-2">
-    </aside>
     </li>
     @endforeach
     {!! $users->render() !!}
+
+<style type="text/css">
+    h2{
+        text-align: center;
+    }
+</style>
 @endif
 @endsection

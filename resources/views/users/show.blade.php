@@ -28,7 +28,6 @@
             	</div>
             </div>
             @endif
-            　 <!--@include('user_follow.follow_button', ['user' => $user])-->
             　 
         </aside>
         <div class="col-xs-8">
@@ -74,6 +73,14 @@
 
 #point .panel-body {
     font-size: 25px;
+}
+
+#point {
+    text-align: center;
+}
+
+.panel-heading {
+    text-align: center;
 }
 
 .tab_area{
