@@ -51,10 +51,10 @@
         margin: 2em 0;
         color: bkack;/*文字色*/
         background: #FFF;
-        border: solid 1px #000000;/*線*/
+        border: solid 2px #000000;/*線*/
         border-radius: 10px;/*角の丸み*/
         text-align: center;
-    }
+         }
     
     #micropost .bb{
         /*font-size: 15px;*/
