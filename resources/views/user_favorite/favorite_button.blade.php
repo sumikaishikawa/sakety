@@ -10,11 +10,11 @@ $today = date("Y-m-d");
             <!--期日設定-->
             @if ($today > $micropost->datefrom_id)
             <button　class="button3" type="button" disabled>
-                Closed
+                終了しました。
             </button>
             @else
             
-            {!! Form::submit('UnJOIN', ['class' => "btn btn-success btn-xs"]) !!}
+            {!! Form::submit('諦める', ['class' => "btn btn-success btn-xs"]) !!}
                            
         {!! Form::close() !!}
         @endif
@@ -27,12 +27,11 @@ $today = date("Y-m-d");
             <!--期日設定-->
             @if ($today > $micropost->datefrom_id)
             <button　class="button3" type="button" disabled>
-                Closed
+                終了しました。
             </button>
             @else
             
-            {!! Form::submit('JOIN', ['class' => "btn btn-default btn-xs"]) !!}
-        @endif
+            {!! Form::submit('100ptで挑戦する', ['class' => "btn btn-default btn-xs"]) !!}
         {!! Form::close() !!}
-
+        @endif
 @endif

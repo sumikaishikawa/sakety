@@ -24,8 +24,10 @@
             @include('users.users', ['users' => $users])
                   {!! Form::open(['route' => 'comments.store']) !!}
                       <div class="form-group">
-                          {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
+                          {!! Form::textarea('content', null, [ 'placeholder'=>'例)ここに達成したい目標を追加してください','class' => 'form-control', 'rows' => '2']) !!}
                           {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+                          
+                        
                           <input type='hidden' name='microposts_id' value={{ $microposts->id }}>
                       </div>
                   {!! Form::close() !!}
