@@ -72,7 +72,7 @@ div.foo{
 }
 
 body {
-    background: #FFF;
+    background: white;
    /*background-image: url("/images/tower.jpg");*/
    
     /* 画像を常6に天地左右の中央に配置 */
@@ -101,12 +101,19 @@ height: 210%;
 /*microposts*/
 
 .micropost{
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    color: #6091d3;/*文字色*/
-    background: #FFF;
-    border: solid 3px #000000;/*線*/
-    border-radius: 10px;/*角の丸み*/
+    
+    
+     margin: 2em auto;
+     padding: 1em;
+     width: 90%;
+     color: #666666; /*文字色*/
+     border: 2px solid #000; /*線の太さ・色*/
+     background-color: #fff; /*背景色*/
+     box-shadow: -2px 5px 5px #A9A9A9; /*影*/
+     border-radius: 20px; /*角の丸み*/
+    
+    
+    
 }
 
 .micropost .bb{
@@ -333,3 +340,6 @@ yumabtn:active { color: #ff8000; }
 
 /*users.show*/
 
+#point .panel-body {
+    font-size: 50px;
+}

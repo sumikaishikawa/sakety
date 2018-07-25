@@ -1,9 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-
-
+<?php
+    $today = date("Y-m-d");
+?>
     <h1><span>目標：{{ $microposts->content }} の参加者一覧</span></h1>
+    <!--締め切り表示-->
+    @if ($today < $microposts->datefrom_id)
+            <h2><i class="fas fa-bell"></i>  期限: {{ $microposts->datefrom_id }} </h2>
+    @elseif ($today == $microposts->datefrom_id)
+            <h2><i class="fas fa-exclamation-triangle"></i>  締め切りは本日までです。 </h2>
+    @elseif ($today > $microposts->datefrom_id) 
+            <h2><i class="far fa-handshake"></i>  既に終了しました。 </h2>
+    @endif 
+    <!--締め切り表示ここまで-->
+    
     <div class="row">
     <div class="col-md-12">
             @include('users.users', ['users' => $users])
@@ -68,6 +79,13 @@
         width: 100%;
         height: 1px;
         background-color: #ccc;
+    }
+    
+    h2 {
+        position: relative;
+        text-align: center;
+        color: red;
+        font-family: 'Montserrat Subrayada';
     }
     
     
