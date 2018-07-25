@@ -10,7 +10,7 @@
         <div class="col-md-6 col-md-offset-3">
             <div class="media-left">
                 <!--<img class="media-object img-rounded" src="{{ Gravatar::src($user->email, 50) }}" alt="">-->
-                <img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="">
+                <img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="" width="50" height="50">
                 　　　
                 </div>
                     <div class="media-body">

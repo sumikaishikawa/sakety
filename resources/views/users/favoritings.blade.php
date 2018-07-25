@@ -9,7 +9,7 @@
                 </div>
                 <div class="panel-body">
                     <!--<img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->email, 500) }}" alt="">-->
-                    <img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="">
+                    <img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="" width="500" height="500">
                 </div>
             </div>
             @if(Auth::user()->id == $user->id)

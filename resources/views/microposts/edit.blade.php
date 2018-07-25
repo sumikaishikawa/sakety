@@ -17,7 +17,12 @@
     @endif 
     <!--締め切り表示ここまで-->
     
-    <hr class="fade-2">
+    <br>
+    <br>
+    <hr />
+    <!--区切り線-->
+    <br>
+    <br>
     
     <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -30,13 +35,18 @@
                       </div>
                   {!! Form::close() !!}
     </div>
+    
+    
+    
+    
     <div class="col-md-8 col-md-offset-2">             
         <ul class="media-list">
             @foreach ($comments as $comment)
                 <?php $user = $comment->user; ?>
                 <li class="media">
                     <div class="media-left">
-                        <img class="media-object img-rounded" src="{{ Gravatar::src($user->email, 50) }}" alt="">
+                        <img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="">
+                        　　　　　
                     </div>
                     <div class="media-body">
                         <div>
@@ -92,16 +102,15 @@
         font-family: 'Montserrat Subrayada';
     }
     
-    .fade-2 {
-      border-width: 0 0 1px;
-      border-image: linear-gradient(
-        90deg,
-        hsla(0, 0%, 100%, 0),
-        hsla(0, 0%, 100%, 0.5) 50%,
-        hsla(0, 0%, 100%, 0) 100%) 0 0 100%;
-      border-style: solid;
+    hr {
+      width: 30%;
+      height: 1px;
+      background: #bbb;
+      background-image: -webkit-linear-gradient(left, #eee, #777, #eee);
+      background-image: -moz-linear-gradient(left, #eee, #777, #eee);
+      background-image: -ms-linear-gradient(left, #eee, #777, #eee);
+      background-image: -o-linear-gradient(left, #eee, #777, #eee);
     }
-    
 </style>
      
 @endsection
