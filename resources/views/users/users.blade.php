@@ -9,6 +9,7 @@
             <div class="media-left">
                 <!--<img class="media-object img-rounded" src="{{ Gravatar::src($user->email, 80) }}" alt="">-->
                 <img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="">
+                　　　
             </div>
             <div class="media-body">
                 <div class="username">
