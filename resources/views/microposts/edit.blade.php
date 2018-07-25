@@ -23,7 +23,7 @@
                   {!! Form::open(['route' => 'comments.store']) !!}
                       <div class="form-group">
                           {!! Form::textarea('content', old('content'), ['placeholder'=>'仲間と交流しよう','class' => 'form-control', 'rows' => '2']) !!}
-                          {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+                          {!! Form::submit('コメントを投稿', ['class' => 'btn btn-primary btn-block']) !!}
                           <input type='hidden' name='microposts_id' value={{ $microposts->id }}>
                       </div>
                   {!! Form::close() !!}

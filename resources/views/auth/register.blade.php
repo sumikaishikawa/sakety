@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('email', '社員番号') !!}
+                    {!! Form::label('email', 'employee #') !!}
                     {!! Form::text('email', old('email'), ['class' => 'form-control']) !!}
                 </div>
 

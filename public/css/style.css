@@ -2,6 +2,17 @@
 
 
 @import url(https://fonts.googleapis.com/css?family=Lato:900);
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Lato:900);
+
+@import url(https://fonts.googleapis.com/css?family=Arvo:700);
+@import url(https://fonts.googleapis.com/css?family=Seaweed+Script);
+
+
+
+
 *, *:before, *:after{
   box-sizing:border-box;
 }
@@ -297,4 +308,445 @@ text-align: center
 
 #point .panel-body {
     font-size: 50px;
+}
+
+*, *:before, *:after{
+  box-sizing:border-box;
+}
+body{
+  font-family: 'Lato', sans-serif;
+}
+div.foo{
+  width: 100%;
+  margin-right: auto;
+  text-align: center;
+}
+.letter{
+  display: inline-block;
+  font-weight: 900;
+  font-size: 8em;
+  margin: 0.2em;
+  position: relative;
+  color: black;
+  transform-style: preserve-3d;
+  perspective: 400;
+  z-index: 1;
+}
+.letter:before, .letter:after{
+  position:absolute;
+  content: attr(data-letter);
+  transform-origin: top left;
+  top:0;
+  left:0;
+}
+.letter, .letter:before, .letter:after{
+  transition: all 0.3s ease-in-out;
+}
+.letter:before{
+  color: #fff;
+  text-shadow: 
+    -1px 0px 1px rgba(255,255,255,.8),
+    1px 0px 1px rgba(0,0,0,.8);
+  z-index: 3;
+  transform:
+    rotateX(0deg)
+    rotateY(-15deg)
+    rotateZ(0deg);
+}
+.letter:after{
+  color: rgba(0,0,0,.11);
+  z-index:2;
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(0deg)
+    rotateZ(0deg)
+    skew(0deg,1deg);
+}
+.letter:hover:before{
+  color: #fafafa;
+  transform:
+    rotateX(0deg)
+    rotateY(-40deg)
+    rotateZ(0deg);
+}
+.letter:hover:after{
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(40deg)
+    rotateZ(0deg)
+    skew(0deg,22deg);
+}
+
+body {
+    /*background: #FFF;*/
+   background-image: url("/images/slot.gif");
+   
+    /* 画像を常6に天地左右の中央に配置 */
+    background-position: center center;
+   
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+   
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    background-attachment: fixed;
+   
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+   
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    /*background-color:#FFFFEE*/
+}
+
+.transparent {
+height: 210%;
+  background: rgba(255,255,255,0.5);
+
+}
+
+
+/*microposts*/
+
+.micropost{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+    border: solid 3px #000000;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.micropost .bb{
+    font-size: 15px;
+}
+
+
+.micropost .aa .content{
+     font-size: 30px;
+     font-weight: bolder;
+      color: #000;
+      text-shadow:0 2px 1px rgba(255, 255, 255, 0.5);
+      word-wrap: normal;
+      width: 19em;
+      font-family:'SimSun','NSimSun';
+
+}
+
+.micropost .aa .date{
+    font-size: 20px;
+    color: black;
+    opacity: 0.5;
+}
+
+.post{
+   width:750px;
+   margin:auto;
+   }
+
+/*comment*/
+
+.comment{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #5d627b;
+    background: #EEEEEE;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+
+.button {
+    
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0 30px;
+    font-size: 19px;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    background: #51587b;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    transition: .4s;
+    
+}
+
+
+.top {
+margin-top: 100px;
+text-align: center;
+font-family: 'Montserrat Subrayada', sans-serif;
+font-size: 100px;
+    animation: pyon 1.0s linear;
+    position: relative;
+    animation: fadeIn 2s ease 0s 1 normal;
+    -webkit-animation: fadeIn 2s ease 0s 1 normal;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+
+.row1 {
+    
+    -moz-background-clip: padding ;
+	-webkit-background-clip: padding;
+	background-clip: padding-box;
+	background-color: rgba(255,255,255,0.5);  /* 背景の設定 */
+	border: 3px solid rgba(0,0,0,0.3);  /* ボーダーの設定 */
+    height:430px;
+    width: 700px;
+    margin: auto;
+    
+}
+
+
+.row2 {
+    
+    -moz-background-clip: padding ;
+	-webkit-background-clip: padding;
+	background-clip: padding-box;
+	background-color: rgba(255,255,255,0.7);  /* 背景の設定 */
+	border: 3px solid rgba(0,0,0,0.3);  /* ボーダーの設定 */
+    height:300px;
+    width: 700px;
+    margin: auto;
+    
+}
+
+.editbody {
+text-align: center
+    
+}                   
+
+.microbtn {
+    margin-left:100px;
+    margin-top:40px;
+}
+
+.signup {
+    font-family: 'Montserrat Subrayada', sans-serif;
+    text-align: center;
+    color:white;
+}
+
+.login {
+    font-family: 'Montserrat Subrayada', sans-serif;
+    text-align: center;
+     color:white;
+}
+
+
+.container {
+    font-family: 'Montserrat Subrayada', sans-serif;
+    text-align: center;
+    height: 70px;
+}
+
+.navbar-default {
+  background-color:rgba(0,0,0,0.5);
+  color:white;
+  
+}
+
+
+
+.yumabtn {
+  
+  border: 2px solid #333;
+  color: black;
+  background-color: white;
+  line-height: 50px;
+  margin:auto;
+  width:200px;
+  
+}
+
+
+
+
+.yumabtn:hover {
+  background-color: rgba(255,255,255,0.7);
+  border-color: black;
+  color: white;
+}
+
+
+
+ 
+
+.bet {
+  font-family: 'Vollkorn', serif;
+  font-size: 80px;
+  color:#755d41;
+  text-shadow:0 2px 0 #755d41,0 2px 1px rgba(0,0,0,0.8);
+  margin-top: -40px;
+}
+.bet:before {
+  color:#b6a57a;
+  -webkit-mask-image:-webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%, rgba(0,0,0,0));
+}
+.bet:after {
+  color:#fff;
+  -webkit-mask-image:-webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 36%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.2) 44%, rgba(0,0,0,0) 60%, rgba(0,0,0,0));
+}
+
+.anata{
+    text-align: center;
+    border: 2px solid #333;
+    color: white;
+    background-color: white;
+    line-height: 50px;
+    margin:auto;
+    width:200px;
+  
+    
+    
+}
+
+
+  
+
+
+body {
+  background-color: #222;
+}
+.plate {
+  width: 410px;
+  margin: 10% auto;
+}
+.shadow {
+  color: #fff;
+  font-family: Arvo;
+  font-weight: bold;
+  text-shadow:
+    -3px -3px 0 #222,
+    3px -3px 0 #222,
+    -3px 3px 0 #222,
+    3px 3px 0 #222,
+    4px 4px 0 #fff,
+    5px 5px 0 #fff,
+    6px 6px 0 #fff,
+    7px 7px 0 #fff;
+  line-height: 0.8em;
+  letter-spacing: 0.1em;
+  transform: scaleY(0.7);
+  -webkit-transform: scaleY(0.7);
+  -moz-transform: scaleY(0.7);
+  margin:0;
+  text-align: center;
+}
+.script {
+  font-family: "Seaweed Script";
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  position: relative;
+  margin:0;
+}
+.script span {
+  background-color: #222;
+  padding: 0 0.3em;
+}
+.script:before {
+  content:"";
+  display: block;
+  position: absolute;
+  z-index:-1;
+  top: 50%;
+  width: 100%;
+  border-bottom: 3px solid #fff;
+}
+.text1 {
+  font-size: 60px;
+}
+.text2 {
+  font-size: 169px;
+}
+.text3 {
+  font-size: 100px;
+}
+
+
+#sec1 {
+  
+  font-size:35px;
+  color: white;
+  
+}
+
+.jump{
+  
+  
+  border: 2px solid #333;
+  color: blue;
+  background-color: white;
+  line-height: 50px;
+  margin:auto;
+  width:200px;
+  
+}
+
+.jump:hover{
+  color: white;
+  background-color:  rgba(255,255,255,0.7);
+}
+
+.element.style {
+  color: white;
+}
+  
+
+
+
+.navbar-default .navbar-brand{
+  
+  color:white;
+  font-size: 20px;
+  margin-top: 10px
+}
+
+.navbar-default .navbar-brand:hover{
+  
+  color:#AAAAAA;
+  
+}
+  
+  
+
+.navbar-default .navbar-nav>li>a{
+  
+  color:white;
+  font-size: 20px;
+   margin-top: 10px
+}
+
+.navbar-default .navbar-nav>li>a:hover{
+  
+  color:#AAAAAA;
+}
+
+.how {
+  
+  font-size: 60px;
+  
+}
+
+.exp {
+  
+  text-decoration: underline;
+}
+
+.sub {
+  
+  font-size:50px;
 }

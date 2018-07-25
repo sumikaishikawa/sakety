@@ -11,7 +11,7 @@
         <div class="col-xs-6 col-xs-offset-3">
             {!! Form::open(['route' => 'login.post']) !!}
                 <div class="form-group"> <br>
-                    {!! Form::label('email', 'ID') !!}
+                    {!! Form::label('email', 'employee #') !!}
                     {!! Form::text('email', old('email'), ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
