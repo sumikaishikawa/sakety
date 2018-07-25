@@ -10,7 +10,6 @@
                 </div>
                 <div class="panel-body">
                     <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->email, 500) }}" alt="">
-                    <!--<img class="media-object img-rounded img-responsive" src="{{ asset(App\User::image_map($user->id))}}" alt="">-->
                 </div>
             </div>
             @if(Auth::user()->id == $user->id)
@@ -28,7 +27,6 @@
             	</div>
             </div>
             @endif
-            　 <!--@include('user_follow.follow_button', ['user' => $user])-->
             　 
         </aside>
         <div class="col-xs-8">
@@ -74,6 +72,14 @@
 
 #point .panel-body {
     font-size: 25px;
+}
+
+#point {
+    text-align: center;
+}
+
+.panel-heading {
+    text-align: center;
 }
 
 .tab_area{
