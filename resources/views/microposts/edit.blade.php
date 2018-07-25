@@ -2,8 +2,23 @@
 
 @section('content')
 
-
-    <h1><span>目標：{{ $microposts->content }} の参加者一覧</span></h1>
+<?php
+    $today = date("Y-m-d");
+?>
+    <h1><span><i class="far fa-check-circle"></i> {{ $microposts->content }} </span></h1>
+    
+    <!--締め切り表示-->
+    @if ($today < $microposts->datefrom_id)
+            <h2>  期限: {{ $microposts->datefrom_id }} </h2>
+    @elseif ($today == $microposts->datefrom_id)
+            <h2>  締め切りは本日までです。 </h2>
+    @elseif ($today > $microposts->datefrom_id) 
+            <h2>  既に終了しました。 </h2>
+    @endif 
+    <!--締め切り表示ここまで-->
+    
+    <hr class="fade-2">
+    
     <div class="row">
     <div class="col-md-8 col-md-offset-2">
             @include('users.users', ['users' => $users])
@@ -70,6 +85,22 @@
         background-color: #ccc;
     }
     
+    h2 {
+        position: relative;
+        text-align: center;
+        color: red;
+        font-family: 'Montserrat Subrayada';
+    }
+    
+    .fade-2 {
+      border-width: 0 0 1px;
+      border-image: linear-gradient(
+        90deg,
+        hsla(0, 0%, 100%, 0),
+        hsla(0, 0%, 100%, 0.5) 50%,
+        hsla(0, 0%, 100%, 0) 100%) 0 0 100%;
+      border-style: solid;
+    }
     
 </style>
      

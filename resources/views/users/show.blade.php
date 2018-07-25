@@ -1,6 +1,7 @@
 @extends('layouts.app')
    <link rel="stylesheet" href="{{ secure_asset('css/tab.css') }}">
 @section('content')
+<div class="container">
     <div class="row">
          <aside class="col-xs-4">
             <div class="panel panel-default">
@@ -60,12 +61,12 @@
                       {!! Form::close() !!}
                 @endif
                 @if (count($microposts) > 0)
-                    @include('microposts.microposts', ['microposts' => $microposts])
+                            @include('microposts.microposts', ['microposts' => $microposts])
                 @endif
             </div>
         </div>
     </div>
-    
+</div>
 @endsection
 
 <!--css-->
@@ -75,6 +76,10 @@
     font-size: 25px;
 }
 
+.tab_area{
+    text-align: center;
+}
+
 .form-group .target{
     font-family: YuGothic,'Yu Gothic','ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
     font-size: 20px;
@@ -82,7 +87,7 @@
     position: relative;
     display: inline-block;
     padding: 0 55px;
-
+    text-align:center;
 }
 
 .form-group .target:before, .form-group .target:after{
@@ -107,6 +112,7 @@
     position: relative;
     display: inline-block;
     padding: 0 55px;
+    text-align:center;
 
 }
 

@@ -16,14 +16,12 @@
                      {!! Form::submit('Search',
                                                 array('class'=>'btn btn-default')) !!}
                 {!! Form::close() !!}
-            </div>
-            <br>
             <br>
             <br>
                 @if (count($microposts) > 0)
                     @include('microposts.microposts', ['microposts' => $microposts])
                 @endif
-            
+            </div>
         </div>
     </div><!--container last-->
     @else
@@ -36,5 +34,11 @@
             {!! link_to_route('signup.get', 'Sign up now!', null ) !!}
         </div>
     @endif
+    
+<style type="text/css">
+    .container{
+        text-align: center;
+    }
+</style>
 @endsection
 
