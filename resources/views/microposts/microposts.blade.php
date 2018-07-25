@@ -5,6 +5,7 @@
 <ul class="media-list">
 @foreach ($microposts as $micropost)
     <?php $user = $micropost->user; ?>
+
     <div class="container"  id="micropost">
         <div class="row">
             <li class="col-xs-12 col-md-8">
@@ -76,6 +77,7 @@
        /*margin:auto;*/
        }
 </style>
+
 
 @endforeach
 </ul>
