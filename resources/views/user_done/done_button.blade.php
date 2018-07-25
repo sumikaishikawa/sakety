@@ -14,7 +14,7 @@
         @if (Auth::id() == $user->id)
                 {!! Form::open(['route' => ['users.done', $user->id]]) !!}
                     {!! Form::hidden('invisible', $microposts->id) !!}
-                    {!! Form::submit('doneにする', ['class' => "btn btn-default btn-lg"]) !!}
+                    {!! Form::submit('doneにする', ['class' => "btn btn-default btn-md"]) !!}
                 {!! Form::close() !!}
         @endif
         <?php
@@ -26,17 +26,17 @@
         @if ($user_done > 0 && Auth::id() == $user->id)
                 {!! Form::open(['route' => ['users.undone', $user->id], 'method' => 'delete']) !!}
                     {!! Form::hidden('invisible', $microposts->id) !!}
-                    {!! Form::submit('done', ['class' => "btn btn-success btn-lg"]) !!}
+                    {!! Form::submit('done', ['class' => "btn btn-success btn-md"]) !!}
                 {!! Form::close() !!}
         @elseif ($user_done == 0 && Auth::id() == $user->id)
                 {!! Form::open(['route' => ['users.done', $user->id]]) !!}
                     {!! Form::hidden('invisible', $microposts->id) !!}
-                    {!! Form::submit('doneにする', ['class' => "btn btn-default btn-lg"]) !!}
+                    {!! Form::submit('doneにする', ['class' => "btn btn-default btn-md"]) !!}
                 {!! Form::close() !!}
         @elseif($user_done > 0 && Auth::id() != $user->id)
-                <a class="btn btn-success btn-lg" href="#" role="button">done</a>
+                <a class="btn btn-success btn-md" href="#" role="button">done</a>
         @elseif($user_done == 0 && Auth::id() != $user->id)
-                <a class="btn btn-default btn-lg" href="#" role="button">doneにする</a>
+                <a class="btn btn-default btn-md" href="#" role="button">doneにする</a>
         @endif
         
         <?php      

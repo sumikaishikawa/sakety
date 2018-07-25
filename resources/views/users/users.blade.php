@@ -5,31 +5,16 @@
     <li class="media">
     <aside class="col-xs-4">
     </aside>
-        <div class="col-xs-8">
+        <div class="col-xs-4">
             <div class="media-left">
-                <img class="media-object img-rounded" src="{{ Gravatar::src($user->email, 50) }}" alt="">
+                <img class="media-object img-rounded" src="{{ Gravatar::src($user->email, 80) }}" alt="">
+            </div>
+            <div class="media-body">
+                <div class="username">
+                    {!! link_to_route('users.show', $user->name, ['id' => $user->id]) !!}
                 </div>
-                    <div class="media-body">
-                        <div>
-                            {{ $user->name }}
-                        </div>
-                    <div>
-                        <p>{!! link_to_route('users.show', 'View profile', ['id' => $user->id]) !!}</p>
-
-                @include('user_done.done_button', ['user' => $user])
-
-                       
-                    <!--    @if (Auth::id() == $user->id)-->
-        
-                    <!--     {!! Form::open(['route' => ['users.undone', $user->id], ]) !!}-->
-                    <!--         {!! Form::submit('NotDone', ['class' => "btn btn-success btn-xs"]) !!}-->
-                    <!--       {!! Form::close() !!}-->
-                    <!--                    @else-->
-                    <!--    {!! Form::open(['route' => ['users.done', $user->id]]) !!}-->
-                    <!--    {!! Form::submit('Done', ['class' => "btn btn-default btn-xs"]) !!}-->
-                    <!--        {!! Form::close() !!}-->
-                    <!--@endif-->
-                      
+                <div>
+                    @include('user_done.done_button', ['user' => $user])
                 </div>
             </div>
         </div>
@@ -38,33 +23,56 @@
 @endforeach
     <?php 
         $count_doneings = DB::table('user_done')->where('done_id',  $microposts->id)->get();
-        // var_dump($count_doneings);
-        // exit;
     ?>
-    <h3>現在の参加者<p1>{{ $i }}人</p1>。</h3>
-    <h3>現在の目標達成人数<p1>{{ count($count_doneings) }}人</p1>。</h3>
-    <h3>現在の掛けポイントは合計<p1>{{ $i * 100 }}ポイント</p1>!!</h3>
-    @if(count($count_doneings) > 0)
-    <h3>現在あなたへの配当ポイントは<p1>{{ $i * 100 / count($count_doneings) }}ポイント</p1>!!</h3>
-    @else(count($count_doneings == 0))
-    <h3>現在あなたへの配当ポイントは<p1>0ポイント<p1>です。</h3>
-    <h3>期限までに達成しましょう!</h3>
-    @endif
+    <div class="col-md-6 col-md-offset-3" id="box">
+        <div class="sanka">
+            <h4>参加者</h4>
+            <i class="fas fa-users fa-7x"></i>
+            <p>{{ $i }}人</p>
+        </div>
+        <div class="tassei">
+            <h4>達成者</h4>
+            <i class="fas fa-trophy fa-7x"></i>
+            <p>{{ count($count_doneings) }}人</p>
+        </div>
+        <div class="kakept">
+            <h4>総Pt</h4>
+            <i class="fas fa-coins fa-7x"></i>
+            <p>{{ $i * 100 }}Pt</p>
+        </div>
+        @if(count($count_doneings) > 0)
+        <div class="haito">
+            <h4>配当Pt</h4>
+            <i class="fas fa-registered fa-7x"></i>
+            <p>{{ $i * 100 / count($count_doneings) }}Pt</p>
+        </div>
+        @else(count($count_doneings == 0))
+        <div class="haito0">
+            <h4>配当Pt</h4>
+            <i class="far fa-registered fa-7x"></i>
+            <p>0 Pt</p>
+        </div>
+        @endif
     
+    <!--↓pointcss-->
     <style type="text/css">
-        h3{font-family:YuGothic,'Yu Gothic','ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
+        .username{
+            font-size: 15px;
         }
-        p1{font-weight:700;
+    
+        #box{
+            display: flex;
+            justify-content: space-between;
         }
-        
+    
+        #box div p{
+            font-size: 20px;
+        }
     </style>
+    <!--↑pointcss-->
+    
     
 </ul>
 
-<style type="text/css">
-    .p1{
-        
-    }
-</style>
 {!! $users->render() !!}
 @endif
