@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
+
 <?php
     $today = date("Y-m-d");
 ?>
-    <h1><span>目標：{{ $microposts->content }} の参加者一覧</span></h1>
+    <h1><span><i class="far fa-check-circle"></i> {{ $microposts->content }} </span></h1>
+    
     <!--締め切り表示-->
     @if ($today < $microposts->datefrom_id)
             <h2><i class="fas fa-bell"></i>  期限: {{ $microposts->datefrom_id }} </h2>
@@ -15,8 +18,11 @@
     @endif 
     <!--締め切り表示ここまで-->
     
+    <hr class="fade-2">
+    
+
     <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8 col-md-offset-2">
             @include('users.users', ['users' => $users])
                   {!! Form::open(['route' => 'comments.store']) !!}
                       <div class="form-group">
@@ -26,7 +32,7 @@
                       </div>
                   {!! Form::close() !!}
     </div>
-    <div class="col-md-12">             
+    <div class="col-md-8 col-md-offset-2">             
         <ul class="media-list">
             @foreach ($comments as $comment)
                 <?php $user = $comment->user; ?>
@@ -88,7 +94,16 @@
         font-family: 'Montserrat Subrayada';
     }
     
-    
+    .fade-2 {
+      border-width: 0 0 1px;
+      border-image: linear-gradient(
+        90deg,
+        hsla(0, 0%, 100%, 0),
+        hsla(0, 0%, 100%, 0.5) 50%,
+        hsla(0, 0%, 100%, 0) 100%) 0 0 100%;
+      border-style: solid;
+    }
+
 </style>
      
 @endsection
